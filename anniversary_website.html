@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Anniversary Bunuuuu 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(#ffe0ec, #fff4f8);
+      color: #4a1c40;
+      text-align: center;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: url('Screenshot_20250718_105731_Gallery.jpg') no-repeat center center/cover;
+      padding: 120px 20px;
+      color: white;
+      background-color: rgba(0,0,0,0.5);
+      position: relative;
+    }
+    header::before {
+      content: "";
+      background: rgba(0,0,0,0.5);
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 50px;
+      margin: 0;
+      position: relative;
+    }
+    header p {
+      font-size: 18px;
+      margin-top: 20px;
+      position: relative;
+    }
+    section {
+      padding: 50px 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    section:nth-child(2) { animation-delay: 0.3s; }
+    section:nth-child(3) { animation-delay: 0.6s; }
+    section:nth-child(4) { animation-delay: 0.9s; }
+    section:nth-child(5) { animation-delay: 1.2s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .timeline {
+      max-width: 800px;
+      margin: auto;
+    }
+    .timeline h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .timeline p {
+      font-size: 18px;
+    }
+    .gallery img {
+      width: 250px;
+      height: auto;
+      border-radius: 20px;
+      margin: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .letter {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      background: #4a1c40;
+      color: white;
+      padding: 20px;
+    }
+    audio {
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Happy 1st Anniversary, Bunuuuu 💘</h1>
+    <p>From your Manish 💖 — 1st August 2024 to Forever...</p>
+  </header>
+
+  <section>
+    <div class="timeline">
+      <h2>Our First Date 💑</h2>
+      <p>1st August 2024 — the day my life changed when I held your hand for the first time.</p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>Our Pictures 📸</h2>
+    <img src="Screenshot_20250718_105731_Gallery.jpg" alt="Us together" />
+    <img src="20240901_120726.jpg" alt="Trip photo 1" />
+    <img src="20240504_142429.jpg" alt="Trip photo 2" />
+    <img src="20240707_204521.jpg" alt="Mirror selfie" />
+    <img src="IMG-20240427-WA0004.jpg" alt="City selfie" />
+  </section>
+
+  <section>
+    <div class="letter">
+      <h2>A Letter to My Love 💌</h2>
+      <p>
+        I want to love you, adore you, take care of you and make you the happiest person there ever was for all of time 😘😘😘😘.<br><br>
+        I didn't think it was possible to love you any more than I did the day I married you 💖💖💖, but somehow my love only grows. I love you today and always 🫶🫶🫶🫶.<br><br>
+        Happy anniversary to the only person in the world that I want beside me every day and every night for the rest my life 💋💋💋💋. I love you, sweetheart 💘💘....<br><br>
+        I'm so excited about the future because I can't wait to make all of our dreams come true 💕💕. I believe everything happens for a reason because it led me to you.<br><br>
+        Having you by my side makes me the happiest, most grateful and luckiest person in the world. Happy anniversary to my soul mate 💝💝💝💝💝
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Our Song 🎵</h2>
+    <audio controls autoplay loop>
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <p>Counting Stars - OneRepublic (You can replace with actual audio file)</p>
+  </section>
+
+  <footer>
+    <p>Forever yours, Manish 💖</p>
+  </footer>
+</body>
+</html>
