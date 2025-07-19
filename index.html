@@ -2,185 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Forever ❤️</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Anniversary Bunuu ❤️</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(#ffe0ec, #fff4f8);
-      color: #4a1c40;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffe4ec, #ffe0f7);
       overflow-x: hidden;
+      color: #222;
+      text-align: center;
     }
-    .unlock-screen {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(#ffdef0, #fff4f8);
+    .container {
+      padding: 20px;
+    }
+    .unlock {
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      z-index: 9999;
-    }
-    .unlock-screen h2 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 36px;
-    }
-    input {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin: 10px;
-      border: 2px solid #4a1c40;
-      border-radius: 10px;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: #4a1c40;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 10px;
-    }
-    .hidden { display: none; }
-    .main-background {
-      background: url('Screenshot_20250718_105731_Gallery.jpg') center/cover no-repeat;
-      padding: 60px 20px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      position: relative;
-      z-index: 1;
+      height: 100vh;
     }
-    .main-background::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: -1;
-    }
-    .main-background img {
-      width: 200px;
-      border-radius: 50%;
-      border: 5px solid white;
-      margin-bottom: 20px;
-    }
-    .main-background h2 {
-      font-size: 26px;
-      color: white;
-      margin-bottom: 20px;
-    }
-    .message-section {
-      padding: 40px 20px;
-      background: #fff0f5;
-      animation: fadeIn 2s ease forwards;
-    }
-    .slider {
-      display: flex;
-      overflow: hidden;
-      max-width: 100%;
-      margin: 20px auto;
-      position: relative;
-    }
-    .slider img {
-      width: 100%;
-      max-width: 400px;
-      margin: auto;
-      border-radius: 20px;
+    #mainContent {
+      display: none;
+      animation: fadeIn 2s ease-in-out;
     }
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
     }
-    .floating-hearts::before {
-      content: '💖💘💕💗💞💓';
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      font-size: 32px;
-      animation: float 5s linear infinite;
-      transform: translateX(-50%);
+    button {
+      background: #ff69b4;
+      color: white;
+      padding: 12px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.3s ease;
     }
-    @keyframes float {
-      0% { transform: translate(-50%, 0); opacity: 1; }
-      100% { transform: translate(-50%, -100vh); opacity: 0; }
+    button:hover {
+      background: #e7549c;
+      transform: scale(1.05);
+    }
+    .slider {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 800px;
+      position: relative;
+      overflow: hidden;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .slides img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+    .question {
+      margin-top: 30px;
+      font-size: 24px;
+    }
+    .msg {
+      font-size: 20px;
+      margin-top: 25px;
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-  <!-- Unlock Screen -->
-  <div class="unlock-screen" id="unlockScreen">
-    <h2>Hey you 💫<br>Only one person in the world can unlock this.<br>Type your nickname:</h2>
-    <input type="text" id="nicknameInput" placeholder="Type here..." />
-    <button onclick="unlock()">Unlock</button>
-    <p id="error" style="color: red;"></p>
+
+  <div class="unlock" id="unlockScreen">
+    <h2>✨ Tap the heart to unlock your surprise! ✨</h2>
+    <button onclick="unlock()">❤️</button>
   </div>
 
-  <!-- Interactive Romantic Screen -->
-  <div id="interactive" class="hidden main-background floating-hearts">
-    <img src="Screenshot_20250718_105731_Gallery.jpg" alt="Us" />
-    <h2>Will you be my better half forever? 💍</h2>
-    <div>
-      <button onclick="revealMessage()">Yes 💖</button>
-      <button onclick="alert('Wrong answer 😝 Try again!')">No ❌</button>
+  <div class="container" id="mainContent">
+    <h1>Happy Anniversary, My Love 💖</h1>
+    <img src="anniversary_site_images/Screenshot_20250718_105731_Gallery.jpg" width="300" style="border-radius: 20px; margin-top: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.3);"/>
+    
+    <div class="question">
+      <p>Will you be my better half forever? 🥺❤️</p>
+      <button onclick="showMessage()">Yes</button>
+    </div>
+
+    <div id="message" class="msg" style="display: none;">
+      <p>
+        I want to love you, adore you, take care of you and make you the happiest person there ever was for all of time. 💞<br/>
+        I didn't think it was possible to love you any more than I did the day I met you, but somehow my love only grows. 💘<br/>
+        Happy anniversary to my soul mate 💝<br/>
+        I love you forever, Bunuu 🫶💋
+      </p>
+    </div>
+
+    <div class="slider" id="slider">
+      <div class="slides" id="slideImages">
+        <img src="anniversary_site_images/20240901_120726.jpg" />
+        
+        <img src="anniversary_site_images/20240707_204521.jpg" />
+        <img src="anniversary_site_images/IMG-20240427-WA0004.jpg" />
+        <img src="anniversary_site_images/20241024_203324.jpg" />
+        <img src="anniversary_site_images/20240831_182346.jpg" />
+        
+        
+      </div>
     </div>
   </div>
 
-  <!-- Message + Slider Section -->
-  <div id="messageSection" class="hidden message-section">
-    <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px;">Happy Anniversary Bunuuuu 💘</h2>
-    <p style="max-width: 700px; margin: auto; font-size: 18px;">
-      I want to love you, adore you, take care of you and make you the happiest person there ever was for all of time 😘😘😘😘.<br><br>
-      I didn't think it was possible to love you any more than I did the day I married you 💖💖💖, but somehow my love only grows.<br>
-      Happy anniversary to the only person in the world I want beside me every day and every night 💋💋💋💋.<br><br>
-      Having you by my side makes me the happiest, most grateful and luckiest person in the world. 💝💝💝💝💝
-    </p>
-
-    <div class="slider">
-      <img id="sliderImage" src="Screenshot_20250718_105731_Gallery.jpg" alt="slider" />
-    </div>
-  </div>
-
-  <!-- Scripts -->
   <script>
-    const sliderImages = [
-      'Screenshot_20250718_105731_Gallery.jpg',
-      '20240901_120726.jpg',
-      '20240504_142429.jpg',
-      '20240707_204521.jpg',
-      'IMG-20240427-WA0004.jpg'
-    ];
-    let currentSlide = 0;
-
     function unlock() {
-      const input = document.getElementById('nicknameInput').value.trim().toLowerCase();
-      const allowed = ['bunuuuu', 'bunu', 'bunuuu'];
-      if (allowed.includes(input)) {
-        document.getElementById('unlockScreen').classList.add('hidden');
-        document.getElementById('interactive').classList.remove('hidden');
-      } else {
-        document.getElementById('error').innerText = 'Oops! Try again ❤️';
-      }
+      document.getElementById("unlockScreen").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
     }
 
-    function revealMessage() {
-      const msgSection = document.getElementById('messageSection');
-      msgSection.classList.remove('hidden');
-      msgSection.scrollIntoView({ behavior: 'smooth' });
-      startSlider();
+    function showMessage() {
+      document.getElementById("message").style.display = "block";
     }
 
-    function startSlider() {
-      setInterval(() => {
-        currentSlide = (currentSlide + 1) % sliderImages.length;
-        document.getElementById('sliderImage').src = sliderImages[currentSlide];
-      }, 2500);
-    }
+    let currentSlide = 0;
+    const slides = document.getElementById("slideImages");
+    const totalSlides = slides.children.length;
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }, 3000);
   </script>
+
 </body>
 </html>
