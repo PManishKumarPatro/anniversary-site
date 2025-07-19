@@ -194,24 +194,18 @@
 
   <!-- Message + Slider Section -->
   <div id="messageSection" class="hidden message-section">
-    <button onclick="goToRomanticPage()" style="
+    <div id="lipsEmoji" onclick="handleLipsClick()" style="
   position: absolute;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 25px 60px;
-  background-color: #ff4f87;
-  color: white;
-  font-size: 26px;
-  font-family: 'Great Vibes', cursive;
-  border: none;
-  border-radius: 100px 100px 100px 100px / 70px 70px 50px 50px;
+  font-size: 60px;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s;
-">
-  💋 Feel Me 💋
-</button>
+  z-index: 5;
+" title="Click to feel my love 💋">
+  💋
+</div>
+
 
 
     <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; margin-top: 80px;">Happy Anniversary Bunuuuu 💘</h2>
@@ -259,6 +253,9 @@
       <button onclick="closeRejectionModal()">Close 💗</button>
     </div>
   </div>
+
+  <div id="sparkleContainer" style="position: absolute; top: 0; left: 0; pointer-events: none;"></div>
+
 
   <script>
     const sliderImages = [
@@ -341,6 +338,37 @@
         container.appendChild(emoji);
       }
     }
+    function handleLipsClick() {
+    createSparkles();
+    goToRomanticPage(); // This is your original navigation function
+  }
+
+  function createSparkles() {
+    const sparkleContainer = document.getElementById("sparkleContainer");
+    for (let i = 0; i < 10; i++) {
+      const sparkle = document.createElement("div");
+      sparkle.innerText = "✨";
+      sparkle.style.position = "absolute";
+      sparkle.style.fontSize = "20px";
+      sparkle.style.left = "50%";
+      sparkle.style.top = "60px";
+      sparkle.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
+      sparkle.style.opacity = "1";
+      sparkle.style.transition = "all 1s ease-out";
+
+      setTimeout(() => {
+        sparkle.style.top = `${60 - Math.random() * 100}px`;
+        sparkle.style.left = `${50 + (Math.random() - 0.5) * 200}%`;
+        sparkle.style.opacity = "0";
+      }, 10);
+
+      sparkleContainer.appendChild(sparkle);
+
+      setTimeout(() => {
+        sparkle.remove();
+      }, 1100);
+    }
+  }
   </script>
 </body>
 </html>
