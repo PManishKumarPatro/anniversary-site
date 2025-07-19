@@ -113,7 +113,6 @@
       to { opacity: 1; }
     }
 
-    /* Floating Hearts Fullscreen */
     .hearts-container {
       position: fixed;
       top: 0;
@@ -143,11 +142,33 @@
         opacity: 0;
       }
     }
+
+    /* Rejection Modal */
+    #rejectionModal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+
+    #rejectionModal .content {
+      background: #fff0f5;
+      padding: 30px;
+      max-width: 500px;
+      border-radius: 20px;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      color: #4a1c40;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
 
-  <!-- Floating Hearts Container -->
+  <!-- Floating Hearts -->
   <div class="hearts-container"></div>
 
   <!-- Unlock Screen -->
@@ -164,7 +185,7 @@
     <h2>Will you be my better half forever? 💍</h2>
     <div>
       <button onclick="revealMessage()">Yes 💖</button>
-      <button onclick="alert('Wrong answer 😝 Try again!')">No ❌</button>
+      <button onclick="showRejectionMessage()">No ❌</button>
     </div>
   </div>
 
@@ -180,6 +201,31 @@
 
     <div class="slider">
       <img id="sliderImage" src="Screenshot_20250718_105731_Gallery.jpg" alt="slider" />
+    </div>
+  </div>
+
+  <!-- Rejection Message Modal -->
+  <div id="rejectionModal" class="hidden">
+    <div class="content">
+      <h3 style="font-family: 'Great Vibes', cursive; font-size: 32px; margin-bottom: 15px;">My Love 💔</h3>
+      <p style="font-size: 16px; line-height: 1.6;">
+        If I made a mistake in the way I asked or the way I dream of our forever, please forgive me. 🥺<br><br>
+        You mean more to me than words could ever hold, and I don’t want to lose the chance to be the one who learns your favorite smiles. 😊<br><br>
+        I still wish — if you’ll allow — to be your partner, your safe place, your forever best friend, and the one who makes your heart feel at home. 🏡❤️<br><br>
+        Please accept me, with all my imperfections, but all of my love. 💌<br><br>
+        Because no matter what, I promise — I’ll never stop trying to make you happy. 🌈💕<br><br>
+        <strong>Forever yours,<br>Puchiiii 🐻</strong>
+      </p>
+      <button onclick="closeRejectionModal()" style="
+        margin-top: 20px;
+        background-color: #4a1c40;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+      ">Close 💗</button>
     </div>
   </div>
 
@@ -201,7 +247,7 @@
       if (allowed.includes(input)) {
         document.getElementById('unlockScreen').classList.add('hidden');
         document.getElementById('interactive').classList.remove('hidden');
-        createFloatingHearts(); // Create hearts on unlock
+        createFloatingHearts();
       } else {
         document.getElementById('error').innerText = 'Oops! Try again ❤️';
       }
@@ -233,6 +279,14 @@
         heart.style.fontSize = `${16 + Math.random() * 24}px`;
         container.appendChild(heart);
       }
+    }
+
+    function showRejectionMessage() {
+      document.getElementById('rejectionModal').classList.remove('hidden');
+    }
+
+    function closeRejectionModal() {
+      document.getElementById('rejectionModal').classList.add('hidden');
     }
   </script>
 </body>
