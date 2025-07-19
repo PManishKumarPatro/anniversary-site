@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Forever ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hearts-container"></div>
+
+  <div class="unlock-screen" id="unlockScreen">
+    <h2>Hey you 💫<br>Only one person in the world can unlock this.<br>Type your nickname:</h2>
+    <input type="text" id="nicknameInput" placeholder="Type here..." />
+    <button onclick="unlock()">Unlock</button>
+    <p id="error" style="color: red;"></p>
+  </div>
+
+  <div id="interactive" class="hidden main-background">
+    <img src="Screenshot_20250718_105731_Gallery.jpg" alt="Us" />
+    <h2>Will you be my better half forever? 💍</h2>
+    <div>
+      <button onclick="revealMessage()">Yes 💖</button>
+      <button onclick="showRejectionMessage()">No ❌</button>
+    </div>
+  </div>
+
+  <div id="messageSection" class="hidden message-section">
+    <h2 class="romantic-title">Happy Anniversary Bunuuuu 💘</h2>
+    <p class="romantic-text">
+      I want to love you, adore you, take care of you and make you the happiest person there ever was for all of time 😘😘😘😘.<br><br>
+      I didn't think it was possible to love you any more than I did the day I married you 💖💖💖, but somehow my love only grows.<br>
+      Happy anniversary to the only person in the world I want beside me every day and every night 💋💋💋💋.<br><br>
+      Having you by my side makes me the happiest, most grateful and luckiest person in the world. 💝💝💝💝💝
+    </p>
+    <button class="feel-button" onclick="openRomanticWorld()">Feel Me ❤️</button>
+    <div class="slider">
+      <img id="sliderImage" src="Screenshot_20250718_105731_Gallery.jpg" alt="slider" />
+    </div>
+  </div>
+
+  <div id="rejectionModal" class="hidden rejection-modal">
+    <div class="content">
+      <h3 class="romantic-title">My Love 💔</h3>
+      <p class="romantic-text">
+        If I made a mistake, please forgive me. 🥺<br><br>
+        You mean more to me than words could ever hold, and I don’t want to lose the chance to be the one who learns your favorite smiles. 😊<br><br>
+        I still wish — if you’ll allow — to be your partner, your safe place, your forever best friend, and the one who makes your heart feel at home. 🏡❤️<br><br>
+        Please accept me, with all my imperfections, but all of my love. 💌<br><br>
+        Because no matter what, I promise — I’ll never stop trying to make you happy. 🌈💕<br><br>
+        <strong>Forever yours,<br>Puchiiii 🐻</strong>
+      </p>
+      <button onclick="closeRejectionModal()" class="close-button">Close 💗</button>
+    </div>
+  </div>
+
+  <div id="romanticWorld" class="hidden romantic-world">
+    <h1 class="romantic-title">Welcome to Shivi ki Mani Era 💫</h1>
+    <div class="tab-buttons">
+      <button onclick="openTab('datesTab')">Our Dates ❤️</button>
+      <button onclick="openTab('honeymoonTab')">Honeymoon 🏖️</button>
+      <button onclick="openTab('bestfriendTab')">Bestfriend Outing 👯</button>
+      <button onclick="openTab('jaanTab')">My Jaan 💞</button>
+    </div>
+    <div id="datesTab" class="tab-content">
+      <img src="105d5029-c7be-4cab-ad1a-df1aa49163e5.jpg" class="tab-photo" />
+      <img src="20241102_133821.jpg" class="tab-photo" />
+    </div>
+    <div id="honeymoonTab" class="tab-content hidden">
+      <img src="20240831_182346.jpg" class="tab-photo" />
+    </div>
+    <div id="bestfriendTab" class="tab-content hidden">
+      <p class="romantic-text">Coming soon... 💑</p>
+    </div>
+    <div id="jaanTab" class="tab-content hidden">
+      <p class="romantic-text">Coming soon... 💖</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
