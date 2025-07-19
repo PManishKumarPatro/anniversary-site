@@ -91,6 +91,7 @@
       padding: 40px 20px;
       background: #fff0f5;
       animation: fadeIn 2s ease forwards;
+      position: relative;
     }
 
     .slider {
@@ -113,7 +114,7 @@
       to { opacity: 1; }
     }
 
-    .hearts-container {
+    .hearts-container, .emoji-rain {
       position: fixed;
       top: 0;
       left: 0;
@@ -124,12 +125,15 @@
       overflow: hidden;
     }
 
-    .heart {
+    .heart, .emoji {
       position: absolute;
       font-size: 24px;
       animation: floatUp 10s linear infinite;
-      color: #ff69b4;
       opacity: 0.7;
+    }
+
+    .heart {
+      color: #ff69b4;
     }
 
     @keyframes floatUp {
@@ -143,12 +147,11 @@
       }
     }
 
-    /* Rejection Modal */
     #rejectionModal {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.7);
-      display: none; /* START hidden */
+      display: none;
       align-items: center;
       justify-content: center;
       z-index: 10000;
@@ -191,7 +194,23 @@
 
   <!-- Message + Slider Section -->
   <div id="messageSection" class="hidden message-section">
-    <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px;">Happy Anniversary Bunuuuu 💘</h2>
+    <button onclick="goToRomanticPage()" style="
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 15px 30px;
+      background-color: #ff69b4;
+      color: white;
+      font-size: 24px;
+      font-family: 'Great Vibes', cursive;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      z-index: 10;
+    ">Feel Me ❤️</button>
+
+    <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; margin-top: 80px;">Happy Anniversary Bunuuuu 💘</h2>
     <p style="max-width: 700px; margin: auto; font-size: 18px;">
       I want to love you, adore you, take care of you and make you the happiest person there ever was for all of time 😘😘😘😘.<br><br>
       I didn't think it was possible to love you any more than I did the day I married you 💖💖💖, but somehow my love only grows.<br>
@@ -204,8 +223,25 @@
     </div>
   </div>
 
+  <!-- Romantic Second Page -->
+  <div id="romanticPage" class="hidden" style="padding: 60px 20px; background: linear-gradient(#ffe6f0, #fff0f5); min-height: 100vh;">
+    <h1 style="font-family: 'Great Vibes', cursive; font-size: 48px; color: #d63384; margin-bottom: 30px;">
+      Welcome to Shivi ki Mani Era 💫
+    </h1>
+    <p style="font-size: 20px; max-width: 700px; margin: auto; color: #4a1c40;">
+      This is our love journey beautifully captured forever 💕<br>
+      Our moments, memories, and magic all in one place 💍🌹
+    </p>
+    <div style="margin-top: 40px; font-size: 18px;">
+      📌 Coming soon: Our Dates ❤️, Honeymoon 💞, Bestfriend Outing 💃, My Jaan 🧸
+    </div>
+
+    <!-- Emoji Rain -->
+    <div class="emoji-rain" id="emojiRain"></div>
+  </div>
+
   <!-- Rejection Message Modal -->
-  <div id="rejectionModal" class="hidden" style="display: none;">
+  <div id="rejectionModal" class="hidden">
     <div class="content">
       <h3 style="font-family: 'Great Vibes', cursive; font-size: 32px; margin-bottom: 15px;">My Love 💔</h3>
       <p style="font-size: 16px; line-height: 1.6;">
@@ -216,28 +252,16 @@
         Because no matter what, I promise — I’ll never stop trying to make you happy. 🌈💕<br><br>
         <strong>Forever yours,<br>Puchiiii 🐻</strong>
       </p>
-      <button onclick="closeRejectionModal()" style="
-        margin-top: 20px;
-        background-color: #4a1c40;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 10px;
-        font-size: 16px;
-        cursor: pointer;
-      ">Close 💗</button>
+      <button onclick="closeRejectionModal()">Close 💗</button>
     </div>
   </div>
 
-  <!-- Scripts -->
   <script>
     const sliderImages = [
       'Screenshot_20250718_105731_Gallery.jpg',
       '20240901_120726.jpg',
       '20240707_204521.jpg',
-      'IMG-20240427-WA0004.jpg',
-      '20240707_204521.jpg',
-      '20240901_120726.jpg'
+      'IMG-20240427-WA0004.jpg'
     ];
     let currentSlide = 0;
 
@@ -282,16 +306,37 @@
     }
 
     function showRejectionMessage() {
-    const modal = document.getElementById('rejectionModal');
-    modal.classList.remove('hidden');
-    modal.style.display = 'flex';
-  }
+      const modal = document.getElementById('rejectionModal');
+      modal.classList.remove('hidden');
+      modal.style.display = 'flex';
+    }
 
-  function closeRejectionModal() {
-    const modal = document.getElementById('rejectionModal');
-    modal.classList.add('hidden');
-    modal.style.display = 'none';
-  }
+    function closeRejectionModal() {
+      const modal = document.getElementById('rejectionModal');
+      modal.classList.add('hidden');
+      modal.style.display = 'none';
+    }
+
+    function goToRomanticPage() {
+      document.getElementById('messageSection').classList.add('hidden');
+      document.getElementById('romanticPage').classList.remove('hidden');
+      createEmojiRain();
+      document.getElementById('romanticPage').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function createEmojiRain() {
+      const container = document.getElementById('emojiRain');
+      const emojis = ['💖', '💋', '💕', '💘', '🌹', '💑', '💓', '❤️'];
+      for (let i = 0; i < 40; i++) {
+        const emoji = document.createElement('div');
+        emoji.classList.add('emoji');
+        emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.style.left = `${Math.random() * 100}%`;
+        emoji.style.animationDelay = `${Math.random() * 5}s`;
+        emoji.style.fontSize = `${18 + Math.random() * 24}px`;
+        container.appendChild(emoji);
+      }
+    }
   </script>
 </body>
 </html>
