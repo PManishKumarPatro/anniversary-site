@@ -2,38 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Forever ❤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(#ffe0ec, #fff4f8);
       color: #4a1c40;
+      text-align: center;
       overflow-x: hidden;
     }
-    .hidden { display: none; }
-    .centered {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-    }
-    button {
-      padding: 10px 20px; font-size: 16px; border-radius: 10px; border: none;
-      background: #4a1c40; color: white; cursor: pointer; margin: 10px;
-    }
 
-    /* Unlock screen */
     .unlock-screen {
-      position: fixed; inset: 0;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: linear-gradient(#ffdef0, #fff4f8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       z-index: 9999;
     }
+
     .unlock-screen h2 {
       font-family: 'Great Vibes', cursive;
       font-size: 36px;
-      text-align: center;
-      padding: 0 20px;
     }
 
     input {
@@ -44,138 +39,130 @@
       border-radius: 10px;
     }
 
-    /* Main romantic page */
+    button {
+      padding: 10px 20px;
+      background-color: #4a1c40;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
     .main-background {
       background: url('Screenshot_20250718_105731_Gallery.jpg') center/cover no-repeat;
+      padding: 60px 20px;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      padding: 80px 20px;
-      text-align: center;
       z-index: 1;
     }
+
     .main-background::after {
-      content: ''; position: absolute; inset: 0;
-      background: rgba(0, 0, 0, 0.5); z-index: -1;
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: -1;
     }
+
     .main-background img {
-      width: 180px;
+      width: 200px;
       border-radius: 50%;
       border: 5px solid white;
+      margin-bottom: 20px;
     }
+
     .main-background h2 {
+      font-size: 26px;
       color: white;
-      font-size: 24px;
-      margin: 20px 0;
+      margin-bottom: 20px;
     }
 
     .message-section {
-      background: #fff0f5;
       padding: 40px 20px;
-      text-align: center;
+      background: #fff0f5;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .slider {
+      display: flex;
+      overflow: hidden;
+      max-width: 100%;
+      margin: 20px auto;
+      position: relative;
     }
 
     .slider img {
       width: 100%;
       max-width: 400px;
+      margin: auto;
       border-radius: 20px;
-      margin: 20px auto;
-      display: block;
     }
 
-    /* Floating hearts */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .hearts-container {
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
       z-index: 2;
       overflow: hidden;
     }
+
     .heart {
       position: absolute;
+      font-size: 24px;
       animation: floatUp 10s linear infinite;
+      color: #ff69b4;
       opacity: 0.7;
-      font-size: 20px;
-    }
-    @keyframes floatUp {
-      0% { transform: translateY(100vh) scale(1); opacity: 1; }
-      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
     }
 
-    /* Rejection modal */
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    /* Rejection Modal */
     #rejectionModal {
-      position: fixed; inset: 0;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.7);
-      display: none;
-      align-items: center; justify-content: center;
+      display: none; /* START hidden */
+      align-items: center;
+      justify-content: center;
       z-index: 10000;
     }
+
     #rejectionModal .content {
       background: #fff0f5;
       padding: 30px;
-      border-radius: 20px;
       max-width: 500px;
-      text-align: center;
-    }
-
-    /* Feel Me button */
-    .feel-button {
-      font-size: 20px;
-      margin-top: 30px;
-      background-color: #ff4081;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-
-    /* Tab Section */
-    #tabSection {
-      padding: 30px 20px;
-      background: linear-gradient(to bottom, #fff0f5, #ffe0ec);
-      text-align: center;
-      min-height: 100vh;
-      position: relative;
-    }
-    .tabs {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .tab-btn {
-      padding: 10px 15px;
       border-radius: 20px;
-      background: #4a1c40;
-      color: white;
-      cursor: pointer;
-    }
-    .tab-content img {
-      max-width: 90%;
-      margin: 10px;
-      border-radius: 20px;
-      box-shadow: 0 0 10px #aaa;
-    }
-
-    /* Rain of emojis */
-    .rain {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .emoji {
-      position: absolute;
-      animation: rainDown 5s linear infinite;
-    }
-
-    @keyframes rainDown {
-      0% { transform: translateY(-50px); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      color: #4a1c40;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
     }
   </style>
 </head>
@@ -184,19 +171,16 @@
   <!-- Floating Hearts -->
   <div class="hearts-container"></div>
 
-  <!-- Emoji Rain -->
-  <div class="rain" id="rainContainer"></div>
-
   <!-- Unlock Screen -->
-  <div class="unlock-screen centered" id="unlockScreen">
-    <h2>Hey you 💫<br/>Only one person can unlock this.<br/>Type your nickname:</h2>
+  <div class="unlock-screen" id="unlockScreen">
+    <h2>Hey you 💫<br>Only one person in the world can unlock this.<br>Type your nickname:</h2>
     <input type="text" id="nicknameInput" placeholder="Type here..." />
     <button onclick="unlock()">Unlock</button>
     <p id="error" style="color: red;"></p>
   </div>
 
-  <!-- Romantic Ask -->
-  <div id="interactive" class="hidden main-background centered">
+  <!-- Interactive Romantic Screen -->
+  <div id="interactive" class="hidden main-background">
     <img src="Screenshot_20250718_105731_Gallery.jpg" alt="Us" />
     <h2>Will you be my better half forever? 💍</h2>
     <div>
@@ -205,7 +189,7 @@
     </div>
   </div>
 
-  <!-- Anniversary Message -->
+  <!-- Message + Slider Section -->
   <div id="messageSection" class="hidden message-section">
     <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px;">Happy Anniversary Bunuuuu 💘</h2>
     <p style="max-width: 700px; margin: auto; font-size: 18px;">
@@ -216,136 +200,98 @@
     </p>
 
     <div class="slider">
-      <img id="sliderImage" src="Screenshot_20250718_105731_Gallery.jpg" />
+      <img id="sliderImage" src="Screenshot_20250718_105731_Gallery.jpg" alt="slider" />
     </div>
-
-    <button class="feel-button" onclick="openTabPage()">Feel Me ❤️</button>
   </div>
 
-  <!-- Rejection Modal -->
-  <div id="rejectionModal" class="hidden">
+  <!-- Rejection Message Modal -->
+  <div id="rejectionModal" class="hidden" style="display: none;">
     <div class="content">
-      <h3 style="font-family: 'Great Vibes', cursive;">My Love 💔</h3>
-      <p>If I made a mistake, please forgive me 🥺<br><br>
-        I don’t want to lose the chance to be the one who learns your favorite smiles 😊<br><br>
-        I still wish — if you’ll allow — to be your partner, your safe place, your forever best friend 🏡❤️<br><br>
-        Please accept me, with all my imperfections, but all of my love 💌<br><br>
-        Forever yours,<br>Puchiiii 🐻</p>
-      <button onclick="closeRejectionModal()">Close 💗</button>
+      <h3 style="font-family: 'Great Vibes', cursive; font-size: 32px; margin-bottom: 15px;">My Love 💔</h3>
+      <p style="font-size: 16px; line-height: 1.6;">
+        If I made a mistake, please forgive me. 🥺<br><br>
+        You mean more to me than words could ever hold, and I don’t want to lose the chance to be the one who learns your favorite smiles. 😊<br><br>
+        I still wish — if you’ll allow — to be your partner, your safe place, your forever best friend, and the one who makes your heart feel at home. 🏡❤️<br><br>
+        Please accept me, with all my imperfections, but all of my love. 💌<br><br>
+        Because no matter what, I promise — I’ll never stop trying to make you happy. 🌈💕<br><br>
+        <strong>Forever yours,<br>Puchiiii 🐻</strong>
+      </p>
+      <button onclick="closeRejectionModal()" style="
+        margin-top: 20px;
+        background-color: #4a1c40;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+      ">Close 💗</button>
     </div>
   </div>
 
-  <!-- Tab Page -->
-  <div id="tabSection" class="hidden">
-    <h2 style="font-family: 'Great Vibes', cursive; font-size: 36px;">Welcome to Shivi ki Mani Era 💕</h2>
-    <div class="tabs">
-      <div class="tab-btn" onclick="openTab('dates')">Our Dates ❤️</div>
-      <div class="tab-btn" onclick="openTab('honeymoon')">Honeymoon 💞</div>
-      <div class="tab-btn" onclick="openTab('outing')">Bestfriend Outing 🤗</div>
-      <div class="tab-btn" onclick="openTab('jaan')">My Jaan 🐻</div>
-    </div>
-    <div class="tab-content" id="tabContent">
-      <!-- Filled dynamically -->
-    </div>
-  </div>
-
+  <!-- Scripts -->
   <script>
     const sliderImages = [
       'Screenshot_20250718_105731_Gallery.jpg',
       '20240901_120726.jpg',
       '20240707_204521.jpg',
-      'IMG-20240427-WA0004.jpg'
+      'IMG-20240427-WA0004.jpg',
+      '20240707_204521.jpg',
+      '20240901_120726.jpg'
     ];
-    const tabPhotos = {
-      dates: ['105d5029-c7be-4cab-ad1a-df1aa49163e5.jpg', '20241102_133821.jpg'],
-      honeymoon: ['20240831_182346.jpg'],
-      outing: [],
-      jaan: []
-    };
+    let currentSlide = 0;
 
     function unlock() {
-  const input = document.getElementById('nicknameInput').value.trim().toLowerCase();
-  console.log('Entered:', input); // <-- Add this
-  const allowed = ['bunuuuu', 'bunu', 'bunuuu'];
-  if (allowed.includes(input)) {
-    document.getElementById('unlockScreen').classList.add('hidden');
-    document.getElementById('interactive').classList.remove('hidden');
-    createFloatingHearts();
-  } else {
-    document.getElementById('error').innerText = 'Oops! Try again ❤️';
-  }
-}
+      const input = document.getElementById('nicknameInput').value.trim().toLowerCase();
+      const allowed = ['bunuuuu', 'bunu', 'bunuuu'];
+      if (allowed.includes(input)) {
+        document.getElementById('unlockScreen').classList.add('hidden');
+        document.getElementById('interactive').classList.remove('hidden');
+        createFloatingHearts();
+      } else {
+        document.getElementById('error').innerText = 'Oops! Try again ❤️';
+      }
+    }
 
     function revealMessage() {
-      document.getElementById('interactive').classList.add('hidden');
-      document.getElementById('messageSection').classList.remove('hidden');
+      const msgSection = document.getElementById('messageSection');
+      msgSection.classList.remove('hidden');
+      msgSection.scrollIntoView({ behavior: 'smooth' });
       startSlider();
     }
 
-    function showRejectionMessage() {
-      const modal = document.getElementById('rejectionModal');
-      modal.classList.remove('hidden');
-      modal.style.display = 'flex';
-    }
-
-    function closeRejectionModal() {
-      const modal = document.getElementById('rejectionModal');
-      modal.classList.add('hidden');
-      modal.style.display = 'none';
-    }
-
     function startSlider() {
-      let i = 0;
       setInterval(() => {
-        i = (i + 1) % sliderImages.length;
-        document.getElementById('sliderImage').src = sliderImages[i];
+        currentSlide = (currentSlide + 1) % sliderImages.length;
+        document.getElementById('sliderImage').src = sliderImages[currentSlide];
       }, 2500);
     }
 
     function createFloatingHearts() {
       const container = document.querySelector('.hearts-container');
       const emojis = ['💖', '💘', '💕', '💗', '💞', '💓'];
-      for (let i = 0; i < 25; i++) {
+      for (let i = 0; i < 30; i++) {
         const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        heart.style.left = `${Math.random() * 100}%`;
-        heart.style.animationDelay = `${Math.random() * 5}s`;
-        heart.style.fontSize = `${20 + Math.random() * 20}px`;
+        heart.classList.add('heart');
+        heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        heart.style.left = ${Math.random() * 100}%;
+        heart.style.animationDelay = ${Math.random() * 10}s;
+        heart.style.fontSize = ${16 + Math.random() * 24}px;
         container.appendChild(heart);
       }
     }
 
-    function openTabPage() {
-      document.getElementById('messageSection').classList.add('hidden');
-      document.getElementById('tabSection').classList.remove('hidden');
-      createEmojiRain();
-      openTab('dates');
-    }
+    function showRejectionMessage() {
+    const modal = document.getElementById('rejectionModal');
+    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
+  }
 
-    function openTab(tabKey) {
-      const content = document.getElementById('tabContent');
-      content.innerHTML = '';
-      tabPhotos[tabKey].forEach(src => {
-        const img = document.createElement('img');
-        img.src = src;
-        content.appendChild(img);
-      });
-    }
-
-    function createEmojiRain() {
-      const rain = document.getElementById('rainContainer');
-      const emojis = ['💓', '💑', '💖', '💋', '😍', '🥰'];
-      for (let i = 0; i < 40; i++) {
-        const drop = document.createElement('div');
-        drop.className = 'emoji';
-        drop.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        drop.style.left = Math.random() * 100 + '%';
-        drop.style.animationDuration = (3 + Math.random() * 3) + 's';
-        drop.style.fontSize = (20 + Math.random() * 15) + 'px';
-        rain.appendChild(drop);
-      }
-    }
+  function closeRejectionModal() {
+    const modal = document.getElementById('rejectionModal');
+    modal.classList.add('hidden');
+    modal.style.display = 'none';
+  }
   </script>
 </body>
 </html>
