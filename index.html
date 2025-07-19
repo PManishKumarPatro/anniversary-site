@@ -148,7 +148,7 @@
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.7);
-      display: flex;
+      display: none; /* START hidden */
       align-items: center;
       justify-content: center;
       z-index: 10000;
@@ -205,7 +205,7 @@
   </div>
 
   <!-- Rejection Message Modal -->
-  <div id="rejectionModal" class="hidden">
+  <div id="rejectionModal">
     <div class="content">
       <h3 style="font-family: 'Great Vibes', cursive; font-size: 32px; margin-bottom: 15px;">My Love 💔</h3>
       <p style="font-size: 16px; line-height: 1.6;">
@@ -282,11 +282,13 @@
     }
 
     function showRejectionMessage() {
-      document.getElementById('rejectionModal').classList.remove('hidden');
+      const modal = document.getElementById('rejectionModal');
+      modal.style.display = 'flex';
     }
 
     function closeRejectionModal() {
-      document.getElementById('rejectionModal').classList.add('hidden');
+      const modal = document.getElementById('rejectionModal');
+      modal.style.display = 'none';
     }
   </script>
 </body>
