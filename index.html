@@ -264,16 +264,17 @@
     };
 
     function unlock() {
-      const input = document.getElementById('nicknameInput').value.trim().toLowerCase();
-      const allowed = ['bunuuuu', 'bunu', 'bunuuu'];
-      if (allowed.includes(input)) {
-        document.getElementById('unlockScreen').classList.add('hidden');
-        document.getElementById('interactive').classList.remove('hidden');
-        createFloatingHearts();
-      } else {
-        document.getElementById('error').innerText = 'Oops! Try again ❤️';
-      }
-    }
+  const input = document.getElementById('nicknameInput').value.trim().toLowerCase();
+  console.log('Entered:', input); // <-- Add this
+  const allowed = ['bunuuuu', 'bunu', 'bunuuu'];
+  if (allowed.includes(input)) {
+    document.getElementById('unlockScreen').classList.add('hidden');
+    document.getElementById('interactive').classList.remove('hidden');
+    createFloatingHearts();
+  } else {
+    document.getElementById('error').innerText = 'Oops! Try again ❤️';
+  }
+}
 
     function revealMessage() {
       document.getElementById('interactive').classList.add('hidden');
