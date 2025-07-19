@@ -109,6 +109,22 @@
       border-radius: 20px;
     }
 
+    .tabBtn {
+  background: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.tabBtn:hover {
+  background: #e0559f;
+}
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -230,12 +246,29 @@
       This is our love journey beautifully captured forever 💕<br>
       Our moments, memories, and magic all in one place 💍🌹
     </p>
-    <div style="margin-top: 40px; font-size: 18px;">
-      📌 Coming soon: Our Dates ❤️, Honeymoon 💞, Bestfriend Outing 💃, My Jaan 🧸
-    </div>
+    <div style="margin: 30px auto; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+    <button class="tabBtn" onclick="showTab('dates')">Our Dates ❤️</button>
+    <button class="tabBtn" onclick="showTab('honeymoon')">Honeymoon 💞</button>
+    <button class="tabBtn" onclick="showTab('outing')">Bestfriend Outing 💃</button>
+    <button class="tabBtn" onclick="showTab('jaan')">My Jaan 🧸</button>
+  </div>
 
-    <!-- Emoji Rain -->
-    <div class="emoji-rain" id="emojiRain"></div>
+  <!-- Tab Content -->
+  <div id="tabContent" style="margin-top: 30px; font-size: 18px;">
+    <p>Select a tab to view our sweet memories 🥰</p>
+  </div>
+
+  <!-- Emoji Rain Background -->
+  <div id="emojiRainContainer" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  "></div>
   </div>
 
   <!-- Rejection Message Modal -->
@@ -368,6 +401,44 @@
         sparkle.remove();
       }, 1100);
     }
+  }
+    function goToRomanticPage() {
+    document.getElementById("interactive").classList.add("hidden");
+    document.getElementById("messageSection").classList.add("hidden");
+    document.getElementById("romanticPage").classList.remove("hidden");
+    startEmojiRain();
+  }
+
+  function showTab(tab) {
+    const content = {
+      dates: `<h2>Our Dates ❤️</h2><p>Photos and memories from our lovely dates will go here. 📸</p>`,
+      honeymoon: `<h2>Honeymoon 💞</h2><p>Our dreamy honeymoon moments. 🌙</p>`,
+      outing: `<h2>Bestfriend Outing 💃</h2><p>All the crazy, sweet, and fun times we had together. 🥳</p>`,
+      jaan: `<h2>My Jaan 🧸</h2><p>Snuggles, selfies, and all our soft moments. 🧸💕</p>`
+    };
+    document.getElementById('tabContent').innerHTML = content[tab];
+  }
+
+  function startEmojiRain() {
+    const container = document.getElementById("emojiRainContainer");
+    const emojis = ['💖', '💘', '💞', '💕', '🌹', '💋'];
+    setInterval(() => {
+      const emoji = document.createElement("div");
+      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.position = "absolute";
+      emoji.style.left = `${Math.random() * 100}%`;
+      emoji.style.top = `-30px`;
+      emoji.style.fontSize = `${20 + Math.random() * 24}px`;
+      emoji.style.opacity = "0.8";
+      emoji.style.transition = "top 5s linear, opacity 5s ease-out";
+      emoji.style.zIndex = "0";
+      container.appendChild(emoji);
+      setTimeout(() => {
+        emoji.style.top = "100vh";
+        emoji.style.opacity = "0";
+      }, 10);
+      setTimeout(() => emoji.remove(), 6000);
+    }, 300);
   }
   </script>
 </body>
