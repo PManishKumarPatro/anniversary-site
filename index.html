@@ -250,101 +250,102 @@
   </div>
 
   <script>
-    const sliderImages = [
-      'Screenshot_20250718_105731_Gallery.jpg',
-      '20240901_120726.jpg',
-      '20240707_204521.jpg',
-      'IMG-20240427-WA0004.jpg'
-    ];
-    const tabPhotos = {
-      dates: ['105d5029-c7be-4cab-ad1a-df1aa49163e5.jpg', '20241102_133821.jpg'],
-      honeymoon: ['20240831_182346.jpg'],
-      outing: [],
-      jaan: []
-    };
+  const sliderImages = [
+    'Screenshot_20250718_105731_Gallery.jpg',
+    '20240901_120726.jpg',
+    '20240707_204521.jpg',
+    'IMG-20240427-WA0004.jpg'
+  ];
+  const tabPhotos = {
+    dates: ['105d5029-c7be-4cab-ad1a-df1aa49163e5.jpg', '20241102_133821.jpg'],
+    honeymoon: ['20240831_182346.jpg'],
+    outing: [],
+    jaan: []
+  };
 
-    function unlock() {
-      const input = document.getElementById('nicknameInput').value.trim().toLowerCase();
-      const allowed = ['bunuuuu', 'bunu', 'bunuuu'];
-      if (allowed.includes(input)) {
-        document.getElementById('unlockScreen').classList.add('hidden');
-        document.getElementById('interactive').classList.remove('hidden');
-        createFloatingHearts();
-      } else {
-        document.getElementById('error').innerText = 'Oops! Try again ❤️';
-      }
+  function unlock() {
+    const input = document.getElementById('nicknameInput').value.trim().toLowerCase();
+    const allowed = ['bunuuuu', 'bunu', 'bunuuu'];
+    if (allowed.includes(input)) {
+      document.getElementById('unlockScreen').classList.add('hidden');
+      document.getElementById('interactive').classList.remove('hidden');
+      createFloatingHearts();
+    } else {
+      document.getElementById('error').innerText = 'Oops! Try again ❤️';
     }
+  }
 
-    function revealMessage() {
-      document.getElementById('interactive').classList.add('hidden');
-      document.getElementById('messageSection').classList.remove('hidden');
-      startSlider();
-    }
+  function revealMessage() {
+    document.getElementById('interactive').classList.add('hidden');
+    document.getElementById('messageSection').classList.remove('hidden');
+    startSlider();
+  }
 
-    function showRejectionMessage() {
-      const modal = document.getElementById('rejectionModal');
-      modal.classList.remove('hidden');
-      modal.style.display = 'flex';
-    }
+  function showRejectionMessage() {
+    const modal = document.getElementById('rejectionModal');
+    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
+  }
 
-    function closeRejectionModal() {
-      const modal = document.getElementById('rejectionModal');
-      modal.classList.add('hidden');
-      modal.style.display = 'none';
-    }
+  function closeRejectionModal() {
+    const modal = document.getElementById('rejectionModal');
+    modal.classList.add('hidden');
+    modal.style.display = 'none';
+  }
 
-    function startSlider() {
-      let i = 0;
-      setInterval(() => {
-        i = (i + 1) % sliderImages.length;
-        document.getElementById('sliderImage').src = sliderImages[i];
-      }, 2500);
-    }
+  function startSlider() {
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % sliderImages.length;
+      document.getElementById('sliderImage').src = sliderImages[i];
+    }, 2500);
+  }
 
-    function createFloatingHearts() {
-      const container = document.querySelector('.hearts-container');
-      const emojis = ['💖', '💘', '💕', '💗', '💞', '💓'];
-      for (let i = 0; i < 25; i++) {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        heart.style.left = `${Math.random() * 100}%`;
-        heart.style.animationDelay = `${Math.random() * 5}s`;
-        heart.style.fontSize = `${20 + Math.random() * 20}px`;
-        container.appendChild(heart);
-      }
+  function createFloatingHearts() {
+    const container = document.querySelector('.hearts-container');
+    const emojis = ['💖', '💘', '💕', '💗', '💞', '💓'];
+    for (let i = 0; i < 25; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.animationDelay = `${Math.random() * 5}s`;
+      heart.style.fontSize = `${20 + Math.random() * 20}px`;
+      container.appendChild(heart);
     }
+  }
 
-    function openTabPage() {
-      document.getElementById('messageSection').classList.add('hidden');
-      document.getElementById('tabSection').classList.remove('hidden');
-      createEmojiRain();
-      openTab('dates');
-    }
+  function openTabPage() {
+    document.getElementById('messageSection').classList.add('hidden');
+    document.getElementById('tabSection').classList.remove('hidden');
+    createEmojiRain();
+    openTab('dates');
+  }
 
-    function openTab(tabKey) {
-      const content = document.getElementById('tabContent');
-      content.innerHTML = '';
-      tabPhotos[tabKey].forEach(src => {
-        const img = document.createElement('img');
-        img.src = src;
-        content.appendChild(img);
-      });
-    }
+  function openTab(tabKey) {
+    const content = document.getElementById('tabContent');
+    content.innerHTML = '';
+    tabPhotos[tabKey].forEach(src => {
+      const img = document.createElement('img');
+      img.src = src;
+      content.appendChild(img);
+    });
+  }
 
-    function createEmojiRain() {
-      const rain = document.getElementById('rainContainer');
-      const emojis = ['💓', '💑', '💖', '💋', '😍', '🥰'];
-      for (let i = 0; i < 40; i++) {
-        const drop = document.createElement('div');
-        drop.className = 'emoji';
-        drop.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        drop.style.left = Math.random() * 100 + '%';
-        drop.style.animationDuration = (3 + Math.random() * 3) + 's';
-        drop.style.fontSize = (20 + Math.random() * 15) + 'px';
-        rain.appendChild(drop);
-      }
+  function createEmojiRain() {
+    const rain = document.getElementById('rainContainer');
+    const emojis = ['💓', '💑', '💖', '💋', '😍', '🥰'];
+    for (let i = 0; i < 40; i++) {
+      const drop = document.createElement('div');
+      drop.className = 'emoji';
+      drop.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      drop.style.left = Math.random() * 100 + '%';
+      drop.style.animationDuration = (3 + Math.random() * 3) + 's';
+      drop.style.fontSize = (20 + Math.random() * 15) + 'px';
+      rain.appendChild(drop);
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
