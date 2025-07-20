@@ -16,15 +16,26 @@
     }
 
     .unlock-screen {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(#ffdef0, #fff4f8);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+
+.unlock-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('9bb97efa-d1d0-4008-b538-1d6fc2136c20.png') center/cover no-repeat;
+  animation: zoomInBg 20s ease-in-out infinite alternate;
+  z-index: 0;
+  transform-origin: center;
+}
+
 
     .unlock-screen h2 {
       font-family: 'Great Vibes', cursive;
@@ -125,6 +136,16 @@
   background: #e0559f;
 }
 
+    @keyframes zoomInBg {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -192,10 +213,13 @@
 
   <!-- Unlock Screen -->
   <div class="unlock-screen" id="unlockScreen">
+    <div class="unlock-bg"></div> <!-- Zooming background -->
+  <div class="unlock-content" style="z-index: 1;">
     <h2>Hey you 💫<br>Only one person in the world can unlock this.<br>Type your nickname:</h2>
     <input type="text" id="nicknameInput" placeholder="Type here..." />
     <button onclick="unlock()">Unlock</button>
     <p id="error" style="color: red;"></p>
+  </div>
   </div>
 
   <!-- Interactive Romantic Screen -->
