@@ -365,23 +365,26 @@
     let currentSlide = 0;
 
     function unlock() {
-      const input = document.getElementById('nicknameInput').value.trim().toLowerCase();
-      const allowed = ['bunuuuu', 'bunu', 'bunuuu'];
-      if (allowed.includes(input)) {
-        document.getElementById('unlockScreen').classList.add('hidden');
-        document.getElementById('interactive').classList.remove('hidden');
-        createFloatingHearts();
-      } else {
-        document.getElementById('error').innerText = 'Oops! Try again ❤️';
-      }
-    }
+  const input = document.getElementById('nicknameInput').value.trim().toLowerCase();
+  const allowed = ['bunuuuu', 'bunu', 'bunuuu'];
+  if (allowed.includes(input)) {
+    hideAllSections();
+    document.getElementById('interactive').classList.remove('hidden');
+    createFloatingHearts();
+  } else {
+    document.getElementById('error').innerText = 'Oops! Try again ❤️';
+  }
+}
+
 
     function revealMessage() {
-      const msgSection = document.getElementById('messageSection');
-      msgSection.classList.remove('hidden');
-      msgSection.scrollIntoView({ behavior: 'smooth' });
-      startSlider();
-    }
+  hideAllSections();
+  const msgSection = document.getElementById('messageSection');
+  msgSection.classList.remove('hidden');
+  msgSection.scrollIntoView({ behavior: 'smooth' });
+  startSlider();
+}
+
 
     function startSlider() {
       setInterval(() => {
@@ -417,11 +420,12 @@
     }
 
     function goToRomanticPage() {
-      document.getElementById('messageSection').classList.add('hidden');
-      document.getElementById('romanticPage').classList.remove('hidden');
-      createEmojiRain();
-      document.getElementById('romanticPage').scrollIntoView({ behavior: 'smooth' });
-    }
+  hideAllSections();
+  document.getElementById("romanticPage").classList.remove("hidden");
+  startEmojiRain();
+  document.getElementById("romanticPage").scrollIntoView({ behavior: 'smooth' });
+}
+
 
     function createEmojiRain() {
       const container = document.getElementById('emojiRain');
@@ -515,6 +519,13 @@
       setTimeout(() => emoji.remove(), 6000);
     }, 300);
   }
+    function hideAllSections() {
+  document.getElementById('unlockScreen').classList.add('hidden');
+  document.getElementById('interactive').classList.add('hidden');
+  document.getElementById('messageSection').classList.add('hidden');
+  document.getElementById('romanticPage').classList.add('hidden');
+}
+
   </script>
 </body>
 </html>
