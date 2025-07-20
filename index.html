@@ -18,33 +18,32 @@
     .unlock-screen {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: url('1000043602.jpg') center center / cover no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  animation: zoomIn 30s ease-in-out infinite alternate;
   color: white;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  background: radial-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.7)),
+              url('d7dec921-96de-46fd-bb82-5101a9590425.jpg') center center / cover no-repeat;
+  animation: unlockZoom 40s ease-in-out infinite alternate;
+  overflow: hidden;
 }
 
 .unlock-screen::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
   z-index: -1;
 }
 
-@keyframes zoomIn {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.1);
-  }
+@keyframes unlockZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
 }
+
 
 
 
@@ -225,6 +224,14 @@
     <p id="error" style="color: red;"></p>
   </div>
   </div>
+<!-- Left Film Strip -->
+<div style="position: fixed; top: 0; bottom: 0; left: 0; width: 80px; background: repeating-linear-gradient(black 0 8px, transparent 8px 16px); opacity: 0.2; z-index: 1;"></div>
+
+<!-- Right Film Strip -->
+<div style="position: fixed; top: 0; bottom: 0; right: 0; width: 80px; background: repeating-linear-gradient(black 0 8px, transparent 8px 16px); opacity: 0.2; z-index: 1;"></div>
+
+<!-- Romantic Frame -->
+<div style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); width: 70%; height: 75%; border: 8px solid rgba(255, 255, 255, 0.6); border-radius: 25px; box-shadow: 0 0 40px rgba(255, 105, 180, 0.4); z-index: 2;"></div>
 
   <!-- Interactive Romantic Screen -->
   <div id="interactive" class="hidden main-background">
