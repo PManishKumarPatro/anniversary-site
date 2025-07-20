@@ -212,45 +212,7 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
     }
 
-    /* Reel strips */
-.film-strip {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 60px;
-  background: repeating-linear-gradient(
-    #000 0px,
-    #000 8px,
-    transparent 8px,
-    transparent 16px
-  );
-  opacity: 0.2;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.film-left {
-  left: 0;
-}
-
-.film-right {
-  right: 0;
-}
-
-/* Romantic glowing frame */
-.romantic-frame {
-  position: fixed;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 85%;
-  height: 85%;
-  border: 10px solid rgba(255, 255, 255, 0.15);
-  border-radius: 30px;
-  box-shadow: 0 0 50px rgba(255, 105, 180, 0.3);
-  z-index: 2;
-  pointer-events: none;
-}
+    
 
   </style>
 </head>
@@ -269,12 +231,7 @@
     <p id="error" style="color: red;"></p>
   </div>
   </div>
-<!-- Reel strips on sides -->
-<div class="film-strip film-left"></div>
-<div class="film-strip film-right"></div>
 
-<!-- Romantic glowing frame -->
-<div class="romantic-frame"></div>
 
 
 
