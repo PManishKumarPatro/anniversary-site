@@ -21,11 +21,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 120px;
   z-index: 9999;
   color: white;
   text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-  background: radial-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.7)),
+  background: radial-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
               url('d7dec921-96de-46fd-bb82-5101a9590425.jpg') center center / cover no-repeat;
   animation: unlockZoom 40s ease-in-out infinite alternate;
   overflow: hidden;
@@ -41,8 +42,46 @@
 
 @keyframes unlockZoom {
   0% { transform: scale(1); }
-  100% { transform: scale(1.08); }
+  100% { transform: scale(1.05); }
 }
+
+/* Romantic frame border */
+.romantic-frame {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 100%;
+  border: 10px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 105, 180, 0.5);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Reel strips on both sides */
+.film-strip {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  background: repeating-linear-gradient(
+    black 0 8px,
+    transparent 8px 16px
+  );
+  opacity: 0.2;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.film-left {
+  left: 0;
+}
+
+.film-right {
+  right: 0;
+}
+
 
 
 
@@ -224,14 +263,15 @@
     <p id="error" style="color: red;"></p>
   </div>
   </div>
-<!-- Left Film Strip -->
-<div style="position: fixed; top: 0; bottom: 0; left: 0; width: 80px; background: repeating-linear-gradient(black 0 8px, transparent 8px 16px); opacity: 0.2; z-index: 1;"></div>
+<!-- Left Reel Strip -->
+<div class="film-strip film-left"></div>
 
-<!-- Right Film Strip -->
-<div style="position: fixed; top: 0; bottom: 0; right: 0; width: 80px; background: repeating-linear-gradient(black 0 8px, transparent 8px 16px); opacity: 0.2; z-index: 1;"></div>
+<!-- Right Reel Strip -->
+<div class="film-strip film-right"></div>
 
-<!-- Romantic Frame -->
-<div style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); width: 70%; height: 75%; border: 8px solid rgba(255, 255, 255, 0.6); border-radius: 25px; box-shadow: 0 0 40px rgba(255, 105, 180, 0.4); z-index: 2;"></div>
+<!-- Romantic glowing frame -->
+<div class="romantic-frame"></div>
+
 
   <!-- Interactive Romantic Screen -->
   <div id="interactive" class="hidden main-background">
