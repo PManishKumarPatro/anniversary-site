@@ -386,7 +386,7 @@
   const allowed = ['bunuuuu', 'bunu', 'bunuuu'];
   if (allowed.includes(input)) {
     hideAllSections();
-    document.getElementById('interactive').classList.remove('hidden');
+    document.getElementById('interactiveContainer').classList.remove('hidden');
     createFloatingHearts();
   } else {
     document.getElementById('error').innerText = 'Oops! Try again ❤️';
