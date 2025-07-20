@@ -356,6 +356,14 @@
 
 
   <script>
+    function hideAllSections() {
+  document.getElementById("unlockScreen").classList.add("hidden");
+  document.getElementById("interactive").classList.add("hidden");
+  document.getElementById("messageSection").classList.add("hidden");
+  document.getElementById("romanticPage").classList.add("hidden");
+  document.getElementById("rejectionModal").classList.add("hidden"); // optional
+}
+
     const sliderImages = [
       'Screenshot_20250718_105731_Gallery.jpg',
       '20240901_120726.jpg',
@@ -377,13 +385,14 @@
 }
 
 
+
     function revealMessage() {
   hideAllSections();
-  const msgSection = document.getElementById('messageSection');
-  msgSection.classList.remove('hidden');
-  msgSection.scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('messageSection').classList.remove('hidden');
+  document.getElementById('messageSection').scrollIntoView({ behavior: 'smooth' });
   startSlider();
 }
+
 
 
     function startSlider() {
@@ -408,10 +417,12 @@
     }
 
     function showRejectionMessage() {
-      const modal = document.getElementById('rejectionModal');
-      modal.classList.remove('hidden');
-      modal.style.display = 'flex';
-    }
+  hideAllSections();
+  const modal = document.getElementById('rejectionModal');
+  modal.classList.remove('hidden');
+  modal.style.display = 'flex';
+}
+
 
     function closeRejectionModal() {
       const modal = document.getElementById('rejectionModal');
@@ -421,10 +432,11 @@
 
     function goToRomanticPage() {
   hideAllSections();
-  document.getElementById("romanticPage").classList.remove("hidden");
+  document.getElementById('romanticPage').classList.remove('hidden');
   startEmojiRain();
-  document.getElementById("romanticPage").scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('romanticPage').scrollIntoView({ behavior: 'smooth' });
 }
+
 
 
     function createEmojiRain() {
@@ -519,12 +531,7 @@
       setTimeout(() => emoji.remove(), 6000);
     }, 300);
   }
-    function hideAllSections() {
-  document.getElementById('unlockScreen').classList.add('hidden');
-  document.getElementById('interactive').classList.add('hidden');
-  document.getElementById('messageSection').classList.add('hidden');
-  document.getElementById('romanticPage').classList.add('hidden');
-}
+    
 
   </script>
 </body>
