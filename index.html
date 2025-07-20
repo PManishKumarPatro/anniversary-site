@@ -357,12 +357,19 @@
 
   <script>
     function hideAllSections() {
-  document.getElementById("unlockScreen").classList.add("hidden");
-  document.getElementById("interactive").classList.add("hidden");
-  document.getElementById("messageSection").classList.add("hidden");
-  document.getElementById("romanticPage").classList.add("hidden");
-  document.getElementById("rejectionModal").classList.add("hidden"); // optional
+  const sections = [
+    'unlockScreen',
+    'interactive',
+    'messageSection',
+    'romanticPage',
+    'rejectionModal'
+  ];
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('hidden');
+  });
 }
+
 
     const sliderImages = [
       'Screenshot_20250718_105731_Gallery.jpg',
