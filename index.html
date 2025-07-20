@@ -210,7 +210,7 @@
 
   <!-- Message + Slider Section -->
   <div id="messageSection" class="hidden message-section">
-    <div id="lipsEmoji" onclick="handleLipsClick()" style="
+    <div id="lipsEmoji" onmouseenter="createSparkles()" onclick="goToRomanticPage()" style="
   position: absolute;
   top: 20px;
   left: 50%;
@@ -218,9 +218,10 @@
   font-size: 60px;
   cursor: pointer;
   z-index: 5;
-" title="Click to feel my love 💋">
+" title="Hover to feel sparkles ✨">
   💋
 </div>
+
 
 
 
@@ -286,6 +287,7 @@
       <button onclick="closeRejectionModal()">Close 💗</button>
     </div>
   </div>
+  
 
   <div id="sparkleContainer" style="position: absolute; top: 0; left: 0; pointer-events: none;"></div>
 
@@ -388,6 +390,7 @@
       sparkle.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
       sparkle.style.opacity = "1";
       sparkle.style.transition = "all 1s ease-out";
+      sparkle.style.zIndex = "1000";
 
       setTimeout(() => {
         sparkle.style.top = `${60 - Math.random() * 100}px`;
