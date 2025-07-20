@@ -76,7 +76,7 @@
     }
 
     .hidden {
-      display: none;
+      display: none !important;
     }
 
     .main-background {
@@ -261,12 +261,14 @@
 
 
   <!-- Interactive Romantic Screen -->
-  <div id="interactive" class="hidden main-background">
+  <div id="interactiveContainer" class="hidden">
+    <div class="main-background">
     <img src="Screenshot_20250718_105731_Gallery.jpg" alt="Us" />
     <h2>Will you be my better half forever? 💍</h2>
     <div>
       <button onclick="revealMessage()">Yes 💖</button>
       <button onclick="showRejectionMessage()">No ❌</button>
+    </div>
     </div>
   </div>
 
@@ -359,7 +361,7 @@
     function hideAllSections() {
   const sections = [
     'unlockScreen',
-    'interactive',
+    'interactiveContainer',
     'messageSection',
     'romanticPage',
     'rejectionModal'
