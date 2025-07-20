@@ -211,6 +211,31 @@
       color: #4a1c40;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
     }
+    .romantic-background {
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+    url('images/shivi-mani-era.jpg') center/cover no-repeat;
+  min-height: 100vh;
+  padding: 60px 20px;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.romantic-background {
+  animation: slowZoom 30s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 105%;
+  }
+}
+
 
     
 
@@ -276,7 +301,8 @@
   </div>
 
   <!-- Romantic Second Page -->
-  <div id="romanticPage" class="hidden" style="padding: 60px 20px; background: linear-gradient(#ffe6f0, #fff0f5); min-height: 100vh;">
+  <div id="romanticPage" class="hidden romantic-background">
+
     <h1 style="font-family: 'Great Vibes', cursive; font-size: 48px; color: #d63384; margin-bottom: 30px;">
       Welcome to Shivi ki Mani Era 💫
     </h1>
