@@ -111,6 +111,14 @@
       background: #fff0f5;
       animation: fadeIn 2s ease forwards;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .message-content {
+      max-width: 700px;
+      margin-bottom: 40px; /* Increased spacing to push carousel down */
     }
 
     .carousel {
@@ -350,19 +358,21 @@
     " title="Hover to feel sparkles ✨">
       💋
     </div>
-    <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; margin-top: 80px;">Happy Anniversary Bunuuuu 💘</h2>
-    <p style="max-width: 700px; margin: auto; font-size: 18px;">
-      I want to love you, adore you, take care of you and make you the happiest person there ever was for all of time 😘😘😘😘.<br><br>
-      I didn't think it was possible to love you any more than I did the day I married you 💖💖💖, but somehow my love only grows.<br>
-      Happy anniversary to the only person in the world I want beside me every day and every night 💋💋💋💋.<br><br>
-      Having you by my side makes me the happiest, most grateful and luckiest person in the world. 💝💝💝💝💝
-    </p>
+    <div class="message-content">
+      <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; margin-top: 80px;">Happy Anniversary Bunuuuu 💘</h2>
+      <p style="max-width: 700px; margin: auto; font-size: 18px;">
+        I want to love you, adore you, take care of you and make you the happiest person there ever was for all of time 😘😘😘😘.<br><br>
+        I didn't think it was possible to love you any more than I did the day I married you 💖💖💖, but somehow my love only grows.<br>
+        Happy anniversary to the only person in the world I want beside me every day and every night 💋💋💋💋.<br><br>
+        Having you by my side makes me the happiest, most grateful and luckiest person in the world. 💝💝💝💝💝
+      </p>
+    </div>
     <div class="carousel">
       <div class="carousel-container" id="carouselContainer">
-        <div class="carousel-item"><img src="Screenshot_20250718_105731_Gallery.jpg" alt="Memory 1" /></div>
-        <div class="carousel-item"><img src="20240901_120726.jpg" alt="Memory 2" /></div>
-        <div class="carousel-item"><img src="20240707_204521.jpg" alt="Memory 3" /></div>
-        <div class="carousel-item"><img src="IMG-20240427-WA0004.jpg" alt="Memory 4" /></div>
+        
+        <div class="carousel-item"><img src="20240901_120726.jpg" alt="Memory 1" /></div>
+        <div class="carousel-item"><img src="20240707_204521.jpg" alt="Memory 2" /></div>
+        <div class="carousel-item"><img src="IMG-20240427-WA0004.jpg" alt="Memory 3" /></div>
       </div>
     </div>
   </div>
