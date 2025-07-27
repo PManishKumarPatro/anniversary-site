@@ -16,40 +16,34 @@
     }
 
     .unlock-screen {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 120px;
-  z-index: 9999;
-  color: white;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-  background: radial-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
-              url('d7dec921-96de-46fd-bb82-5101a9590425.jpg') center center / cover no-repeat;
-  animation: unlockZoom 40s ease-in-out infinite alternate;
-  overflow: hidden;
-}
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 120px;
+      z-index: 9999;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+      background: radial-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
+                  url('d7dec921-96de-46fd-bb82-5101a9590425.jpg') center center / cover no-repeat;
+      animation: unlockZoom 40s ease-in-out infinite alternate;
+      overflow: hidden;
+    }
 
-.unlock-screen::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: -1;
-}
+    .unlock-screen::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: -1;
+    }
 
-@keyframes unlockZoom {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
-}
-
-
-
-
-
-
+    @keyframes unlockZoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05); }
+    }
 
     .unlock-screen h2 {
       font-family: 'Great Vibes', cursive;
@@ -135,23 +129,20 @@
     }
 
     .tabBtn {
-  background: #ff69b4;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  padding: 12px 24px;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background 0.3s;
-}
+      background: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
 
-.tabBtn:hover {
-  background: #e0559f;
-}
-
-    
-
+    .tabBtn:hover {
+      background: #e0559f;
+    }
 
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -211,84 +202,136 @@
       color: #4a1c40;
       box-shadow: 0 0 20px rgba(0,0,0,0.2);
     }
+
     .romantic-background {
-  background: 
-    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
-    url('1000052174.jpg') center/cover no-repeat;
-  min-height: 100vh;
-  padding: 60px 20px;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-.romantic-background {
-  animation: slowZoom 30s ease-in-out infinite alternate;
-}
+      background: 
+        linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+        url('1000052174.jpg') center/cover no-repeat;
+      min-height: 100vh;
+      padding: 60px 20px;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
 
-@keyframes slowZoom {
-  from {
-    background-size: 100%;
-  }
-  to {
-    background-size: 105%;
-  }
-}
+    .romantic-background {
+      animation: slowZoom 30s ease-in-out infinite alternate;
+    }
 
+    @keyframes slowZoom {
+      from {
+        background-size: 100%;
+      }
+      to {
+        background-size: 105%;
+      }
+    }
 
-    
+    .feedback-section {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      text-align: right;
+      z-index: 10;
+    }
 
+    .feedback-section p {
+      font-family: 'Great Vibes', cursive;
+      font-size: 24px;
+      color: #d63384;
+      margin-bottom: 10px;
+    }
+
+    .feedback-emoji {
+      font-size: 32px;
+      cursor: pointer;
+      margin: 0 10px;
+      display: inline-block;
+      transition: transform 0.3s;
+    }
+
+    .feedback-emoji:hover {
+      transform: scale(1.3);
+    }
+
+    .feedback-page {
+      background: linear-gradient(rgba(255, 240, 245, 0.9), rgba(255, 240, 245, 0.9)),
+                  url('1000052174.jpg') center/cover no-repeat;
+      min-height: 100vh;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      animation: slowZoom 30s ease-in-out infinite alternate;
+    }
+
+    .feedback-message {
+      background: #fff0f5;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      margin-bottom: 30px;
+    }
+
+    .revisit-section {
+      margin-top: 30px;
+    }
+
+    .revisit-section p {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #d63384;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
-
   <!-- Floating Hearts -->
   <div class="hearts-container"></div>
 
   <!-- Unlock Screen -->
   <div class="unlock-screen" id="unlockScreen">
-    <div class="unlock-bg"></div> <!-- Zooming background -->
-  <div class="unlock-content" style="z-index: 1;">
-    <h2>Hey you 💫<br>Only one person in the world can unlock this.<br>Type your nickname:</h2>
-    <input type="text" id="nicknameInput" placeholder="Type here..." />
-    <button onclick="unlock()">Unlock</button>
-    <p id="error" style="color: red;"></p>
+    <div class="unlock-bg"></div>
+    <div class="unlock-content" style="z-index: 1;">
+      <h2>Hey you 💫<br>Only one person in the world can unlock this.<br>Type your nickname:</h2>
+      <input type="text" id="nicknameInput" placeholder="Type here..." />
+      <button onclick="unlock()">Unlock</button>
+      <p id="error" style="color: red;"></p>
+    </div>
   </div>
-  </div>
-
-
-
 
   <!-- Interactive Romantic Screen -->
   <div id="interactiveContainer" class="hidden">
     <div class="main-background">
-    <img src="Screenshot_20250718_105731_Gallery.jpg" alt="Us" />
-    <h2>Will you be my better half forever? 💍</h2>
-    <div>
-      <button onclick="revealMessage()">Yes 💖</button>
-      <button onclick="showRejectionMessage()">No ❌</button>
-    </div>
+      <img src="Screenshot_20250718_105731_Gallery.jpg" alt="Us" />
+      <h2>Will you be my better half forever? 💍</h2>
+      <div>
+        <button onclick="revealMessage()">Yes 💖</button>
+        <button onclick="showRejectionMessage()">No ❌</button>
+      </div>
     </div>
   </div>
 
   <!-- Message + Slider Section -->
   <div id="messageSection" class="hidden message-section">
     <div id="lipsEmoji" onmouseenter="createSparkles()" onclick="goToRomanticPage()" style="
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 60px;
-  cursor: pointer;
-  z-index: 5;
-" title="Hover to feel sparkles ✨">
-  💋
-</div>
-
-
-
-
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 60px;
+      cursor: pointer;
+      z-index: 5;
+    " title="Hover to feel sparkles ✨">
+      💋
+    </div>
     <h2 style="font-family: 'Great Vibes', cursive; font-size: 40px; margin-top: 80px;">Happy Anniversary Bunuuuu 💘</h2>
     <p style="max-width: 700px; margin: auto; font-size: 18px;">
       I want to love you, adore you, take care of you and make you the happiest person there ever was for all of time 😘😘😘😘.<br><br>
@@ -296,7 +339,6 @@
       Happy anniversary to the only person in the world I want beside me every day and every night 💋💋💋💋.<br><br>
       Having you by my side makes me the happiest, most grateful and luckiest person in the world. 💝💝💝💝💝
     </p>
-
     <div class="slider">
       <img id="sliderImage" src="Screenshot_20250718_105731_Gallery.jpg" alt="slider" />
     </div>
@@ -304,7 +346,13 @@
 
   <!-- Romantic Second Page -->
   <div id="romanticPage" class="hidden romantic-background">
-
+    <div class="feedback-section">
+      <p>Did you love this moment? 🥰</p>
+      <div>
+        <span class="feedback-emoji" onclick="showLikePage()">💖</span>
+        <span class="feedback-emoji" onclick="showDislikePage()">💔</span>
+      </div>
+    </div>
     <h1 style="font-family: 'Great Vibes', cursive; font-size: 48px; color: #d63384; margin-bottom: 30px;">
       Welcome to Shivi ki Mani Era 💫
     </h1>
@@ -313,28 +361,34 @@
       Our moments, memories, and magic all in one place 💍🌹
     </p>
     <div style="margin: 30px auto; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-    <button class="tabBtn" onclick="showTab('dates')">Our Dates ❤️</button>
-    <button class="tabBtn" onclick="showTab('honeymoon')">Honeymoon 💞</button>
-    <button class="tabBtn" onclick="showTab('outing')">Bestfriend Outing 💃</button>
-    <button class="tabBtn" onclick="showTab('jaan')">My Jaan 🧸</button>
+      <button class="tabBtn" onclick="showTab('dates')">Our Dates ❤️</button>
+      <button class="tabBtn" onclick="showTab('honeymoon')">Honeymoon 💞</button>
+      <button class="tabBtn" onclick="showTab('outing')">Bestfriend Outing 💃</button>
+      <button class="tabBtn" onclick="showTab('jaan')">My Jaan 🧸</button>
+    </div>
+    <div id="tabContent" style="margin-top: 30px; font-size: 18px;">
+      <p>Select a tab to view our sweet memories 🥰</p>
+    </div>
+    <div id="emojiRainContainer" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    "></div>
   </div>
 
-  <!-- Tab Content -->
-  <div id="tabContent" style="margin-top: 30px; font-size: 18px;">
-    <p>Select a tab to view our sweet memories 🥰</p>
-  </div>
-
-  <!-- Emoji Rain Background -->
-  <div id="emojiRainContainer" style="
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-  "></div>
+  <!-- Feedback Page -->
+  <div id="feedbackPage" class="hidden feedback-page">
+    <div class="feedback-message" id="feedbackMessage"></div>
+    <div class="revisit-section">
+      <p>Want to visit our journey once more with me? 💞</p>
+      <button class="tabBtn" onclick="reloadJourney()">Relive Our Love 🌹</button>
+    </div>
+    <div class="emoji-rain"></div>
   </div>
 
   <!-- Rejection Message Modal -->
@@ -352,29 +406,27 @@
       <button onclick="closeRejectionModal()">Close 💗</button>
     </div>
   </div>
-  
 
   <div id="sparkleContainer" style="position: absolute; top: 0; left: 0; pointer-events: none;"></div>
 
-
   <script>
     function hideAllSections() {
-  const sections = [
-    'unlockScreen',
-    'interactiveContainer',
-    'messageSection',
-    'romanticPage',
-    'rejectionModal'
-  ];
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.classList.add('hidden');
-  });
-}
-
+      const sections = [
+        'unlockScreen',
+        'interactiveContainer',
+        'messageSection',
+        'romanticPage',
+        'rejectionModal',
+        'feedbackPage'
+      ];
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+    }
 
     const sliderImages = [
-      'Screenshot_20250718_105731_Gallery.jpg',
+      
       '20240901_120726.jpg',
       '20240707_204521.jpg',
       'IMG-20240427-WA0004.jpg'
@@ -382,27 +434,23 @@
     let currentSlide = 0;
 
     function unlock() {
-  const input = document.getElementById('nicknameInput').value.trim().toLowerCase();
-  const allowed = ['bunuuuu', 'bunu', 'bunuuu'];
-  if (allowed.includes(input)) {
-    hideAllSections();
-    document.getElementById('interactiveContainer').classList.remove('hidden');
-    createFloatingHearts();
-  } else {
-    document.getElementById('error').innerText = 'Oops! Try again ❤️';
-  }
-}
-
-
+      const input = document.getElementById('nicknameInput').value.trim().toLowerCase();
+      const allowed = ['bunuuuu', 'bunu', 'bunuuu'];
+      if (allowed.includes(input)) {
+        hideAllSections();
+        document.getElementById('interactiveContainer').classList.remove('hidden');
+        createFloatingHearts();
+      } else {
+        document.getElementById('error').innerText = 'Oops! Try again ❤️';
+      }
+    }
 
     function revealMessage() {
-  hideAllSections();
-  document.getElementById('messageSection').classList.remove('hidden');
-  document.getElementById('messageSection').scrollIntoView({ behavior: 'smooth' });
-  startSlider();
-}
-
-
+      hideAllSections();
+      document.getElementById('messageSection').classList.remove('hidden');
+      document.getElementById('messageSection').scrollIntoView({ behavior: 'smooth' });
+      startSlider();
+    }
 
     function startSlider() {
       setInterval(() => {
@@ -426,12 +474,11 @@
     }
 
     function showRejectionMessage() {
-  hideAllSections();
-  const modal = document.getElementById('rejectionModal');
-  modal.classList.remove('hidden');
-  modal.style.display = 'flex';
-}
-
+      hideAllSections();
+      const modal = document.getElementById('rejectionModal');
+      modal.classList.remove('hidden');
+      modal.style.display = 'flex';
+    }
 
     function closeRejectionModal() {
       const modal = document.getElementById('rejectionModal');
@@ -441,14 +488,11 @@
     }
 
     function goToRomanticPage() {
-  hideAllSections(); 
-  document.getElementById('romanticPage').classList.remove('hidden'); 
-  startEmojiRain(); 
-  document.getElementById('romanticPage').scrollIntoView({ behavior: 'smooth' });
-}
-
-
-
+      hideAllSections(); 
+      document.getElementById('romanticPage').classList.remove('hidden'); 
+      startEmojiRain(); 
+      document.getElementById('romanticPage').scrollIntoView({ behavior: 'smooth' });
+    }
 
     function createEmojiRain() {
       const container = document.getElementById('emojiRain');
@@ -463,101 +507,158 @@
         container.appendChild(emoji);
       }
     }
+
     function handleLipsClick() {
-    createSparkles();
-    goToRomanticPage(); // This is your original navigation function
-  }
-
-  function createSparkles() {
-    const sparkleContainer = document.getElementById("sparkleContainer");
-    for (let i = 0; i < 10; i++) {
-      const sparkle = document.createElement("div");
-      sparkle.innerText = "✨";
-      sparkle.style.position = "absolute";
-      sparkle.style.fontSize = "20px";
-      sparkle.style.left = "50%";
-      sparkle.style.top = "60px";
-      sparkle.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
-      sparkle.style.opacity = "1";
-      sparkle.style.transition = "all 1s ease-out";
-      sparkle.style.zIndex = "1000";
-
-      setTimeout(() => {
-        sparkle.style.top = `${60 - Math.random() * 100}px`;
-        sparkle.style.left = `${50 + (Math.random() - 0.5) * 200}%`;
-        sparkle.style.opacity = "0";
-      }, 10);
-
-      sparkleContainer.appendChild(sparkle);
-
-      setTimeout(() => {
-        sparkle.remove();
-      }, 1100);
+      createSparkles();
+      goToRomanticPage();
     }
-  }
-    
 
-  function showTab(tab) {
-  const content = {
-    dates: `<h2>Our Dates ❤️</h2><p>Photos and memories from our lovely dates will go here. 📸</p>
-    <div style="margin-top: 20px;">
-        <img src="1000054054.jpg" 
-     alt="Our Dates" 
-     style="width: 300px; max-width: 100%; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
+    function createSparkles() {
+      const sparkleContainer = document.getElementById("sparkleContainer");
+      for (let i = 0; i < 10; i++) {
+        const sparkle = document.createElement("div");
+        sparkle.innerText = "✨";
+        sparkle.style.position = "absolute";
+        sparkle.style.fontSize = "20px";
+        sparkle.style.left = "50%";
+        sparkle.style.top = "60px";
+        sparkle.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
+        sparkle.style.opacity = "1";
+        sparkle.style.transition = "all 1s ease-out";
+        sparkle.style.zIndex = "1000";
 
-      </div>`,
-    honeymoon: `<h2>Honeymoon 💞</h2><p>Our dreamy honeymoon moments. 🌙</p>
-    <div style="margin-top: 20px;">
-        <img src="1000043592.jpg" 
-     alt="Honeymoon" 
-     style="width: 300px; max-width: 100%; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
+        setTimeout(() => {
+          sparkle.style.top = `${60 - Math.random() * 100}px`;
+          sparkle.style.left = `${50 + (Math.random() - 0.5) * 200}%`;
+          sparkle.style.opacity = "0";
+        }, 10);
 
-      </div>`,
-    outing: `<h2>Bestfriend Outing 💃</h2><p>All the crazy, sweet, and fun times we had together. 🥳</p>
-    <div style="margin-top: 20px;">
-        <img src="outing.jpg" 
-     alt="Bestfriend Outing" 
-     style="width: 300px; max-width: 100%; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
+        sparkleContainer.appendChild(sparkle);
 
-      </div>`,
-    jaan: `
-      <h2>My Jaan 🧸</h2>
-      <p>Snuggles, selfies, and all our soft moments. 🧸💕</p>
-      <div style="margin-top: 20px;">
-        <img src="1000061153.jpg" 
-     alt="My Jaan" 
-     style="width: 300px; max-width: 100%; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
+        setTimeout(() => {
+          sparkle.remove();
+        }, 1100);
+      }
+    }
 
-      </div>
-    `
-  };
-  document.getElementById('tabContent').innerHTML = content[tab];
-}
+    function showTab(tab) {
+      const content = {
+        dates: `<h2>Our Dates ❤️</h2><p>Photos and memories from our lovely dates will go here. 📸</p>
+        <div style="margin-top: 20px;">
+            <img src="1000054054.jpg" 
+         alt="Our Dates" 
+         style="width: 300px; max-width: 100%; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
+        </div>`,
+        honeymoon: `<h2>Honeymoon 💞</h2><p>Our dreamy honeymoon moments. 🌙</p>
+        <div style="margin-top: 20px;">
+            <img src="1000043592.jpg" 
+         alt="Honeymoon" 
+         style="width: 300px; max-width: 100%; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
+        </div>`,
+        outing: `<h2>Bestfriend Outing 💃</h2><p>All the crazy, sweet, and fun times we had together. 🥳</p>
+        <div style="margin-top: 20px;">
+            <img src="outing.jpg" 
+         alt="Bestfriend Outing" 
+         style="width: 300px; max-width: 100%; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
+        </div>`,
+        jaan: `
+          <h2>My Jaan 🧸</h2>
+          <p>Snuggles, selfies, and all our soft moments. 🧸💕</p>
+          <div style="margin-top: 20px;">
+            <img src="1000061153.jpg" 
+         alt="My Jaan" 
+         style="width: 300px; max-width: 100%; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);" />
+          </div>
+        `
+      };
+      document.getElementById('tabContent').innerHTML = content[tab];
+    }
 
+    function startEmojiRain() {
+      const container = document.getElementById("emojiRainContainer");
+      const emojis = ['💖', '💘', '💞', '💕', '🌹', '💋'];
+      setInterval(() => {
+        const emoji = document.createElement("div");
+        emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.style.position = "absolute";
+        emoji.style.left = `${Math.random() * 100}%`;
+        emoji.style.top = `-30px`;
+        emoji.style.fontSize = `${20 + Math.random() * 24}px`;
+        emoji.style.opacity = "0.8";
+        emoji.style.transition = "top 5s linear, opacity 5s ease-out";
+        emoji.style.zIndex = "0";
+        container.appendChild(emoji);
+        setTimeout(() => {
+          emoji.style.top = "100vh";
+          emoji.style.opacity = "0";
+        }, 10);
+        setTimeout(() => emoji.remove(), 6000);
+      }, 300);
+    }
 
-  function startEmojiRain() {
-    const container = document.getElementById("emojiRainContainer");
-    const emojis = ['💖', '💘', '💞', '💕', '🌹', '💋'];
-    setInterval(() => {
-      const emoji = document.createElement("div");
-      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-      emoji.style.position = "absolute";
-      emoji.style.left = `${Math.random() * 100}%`;
-      emoji.style.top = `-30px`;
-      emoji.style.fontSize = `${20 + Math.random() * 24}px`;
-      emoji.style.opacity = "0.8";
-      emoji.style.transition = "top 5s linear, opacity 5s ease-out";
-      emoji.style.zIndex = "0";
-      container.appendChild(emoji);
-      setTimeout(() => {
-        emoji.style.top = "100vh";
-        emoji.style.opacity = "0";
-      }, 10);
-      setTimeout(() => emoji.remove(), 6000);
-    }, 300);
-  }
-    
+    function startFeedbackEmojiRain() {
+      const container = document.querySelector("#feedbackPage .emoji-rain");
+      const emojis = ['💖', '💘', '💞', '💕', '🌹', '💋', '💓', '❤️'];
+      setInterval(() => {
+        const emoji = document.createElement("div");
+        emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.style.position = "absolute";
+        emoji.style.left = `${Math.random() * 100}%`;
+        emoji.style.top = `-30px`;
+        emoji.style.fontSize = `${20 + Math.random() * 24}px`;
+        emoji.style.opacity = "0.8";
+        emoji.style.transition = "top 5s linear, opacity 5s ease-out";
+        emoji.style.zIndex = "0";
+        container.appendChild(emoji);
+        setTimeout(() => {
+          emoji.style.top = "100vh";
+          emoji.style.opacity = "0";
+        }, 10);
+        setTimeout(() => emoji.remove(), 6000);
+      }, 300);
+    }
 
+    function showLikePage() {
+      hideAllSections();
+      const feedbackPage = document.getElementById('feedbackPage');
+      feedbackPage.classList.remove('hidden');
+      feedbackPage.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('feedbackMessage').innerHTML = `
+        <p style="font-family: 'Great Vibes', cursive; font-size: 24px; color: #d63384;">
+          Thank you for entering my life, my love! 🌟
+        </p>
+        <p style="font-size: 16px; line-height: 1.6;">
+          Your love makes every moment sparkle brighter than a thousand stars. 
+          I'm forever grateful for you, my heart's home. 💖
+        </p>
+      `;
+      startFeedbackEmojiRain();
+    }
+
+    function showDislikePage() {
+      hideAllSections();
+      const feedbackPage = document.getElementById('feedbackPage');
+      feedbackPage.classList.remove('hidden');
+      feedbackPage.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('feedbackMessage').innerHTML = `
+        <p style="font-family: 'Great Vibes', cursive; font-size: 24px; color: #d63384;">
+          We'll make even sweeter memories, my love! 💕
+        </p>
+        <p style="font-size: 16px; line-height: 1.6;">
+          Every moment with you is a chance to create something beautiful. 
+          Let's fill our days with love and laughter that you'll adore forever! 🥰
+        </p>
+      `;
+      startFeedbackEmojiRain();
+    }
+
+    function reloadJourney() {
+      hideAllSections();
+      document.getElementById('unlockScreen').classList.remove('hidden');
+      document.getElementById('nicknameInput').value = '';
+      document.getElementById('error').innerText = '';
+      document.getElementById('unlockScreen').scrollIntoView({ behavior: 'smooth' });
+    }
   </script>
 </body>
 </html>
