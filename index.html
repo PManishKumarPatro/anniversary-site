@@ -331,9 +331,84 @@
       border-radius: 20px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
+    /* ---------- Valentine Add-ons ---------- */
+
+.valentine-page,
+.tease-page {
+  min-height: 100vh;
+  padding: 60px 20px;
+  background: linear-gradient(#ffe0ec, #fff4f8);
+  position: relative;
+  overflow: hidden;
+}
+
+.valentine-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  color: #d63384;
+  margin-bottom: 30px;
+}
+
+.shayari-box {
+  background: rgba(255,255,255,0.9);
+  padding: 25px;
+  border-radius: 20px;
+  max-width: 700px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.8;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.question-box {
+  margin-top: 40px;
+}
+
+.question-box input {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 2px solid #d63384;
+  width: 200px;
+}
+
+.love-rain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
   </style>
 </head>
 <body>
+  <!-- Valentine Page -->
+<div id="valentinePage" class="hidden valentine-page">
+  <div class="love-rain"></div>
+
+  <h1 class="valentine-title">Valentine Week With You ❤️</h1>
+
+  <div id="shayariBox" class="shayari-box"></div>
+
+  <div class="question-box">
+    <p>
+      Do you know how many years of calendar paper burned because of our love? 🔥📆
+    </p>
+    <input type="number" id="calendarAnswer" placeholder="Enter number..." />
+    <button onclick="checkCalendarAnswer()">Submit 💖</button>
+  </div>
+</div>
+
+<!-- Romantic Tease Page -->
+<div id="teasePage" class="hidden tease-page">
+  <div class="love-rain"></div>
+  <h1>Hehe 😘</h1>
+  <p>
+    Not yet my love…<br><br>
+    But very soon this answer will come true 💞<br>
+    Until then… keep loving me like this ❤️
+  </p>
+  <button class="tabBtn" onclick="reloadJourney()">Go Back 💋</button>
+</div>
   <!-- Floating Hearts -->
   <div class="hearts-container"></div>
 
@@ -458,6 +533,64 @@
   <div id="sparkleContainer" style="position: absolute; top: 0; left: 0; pointer-events: none;"></div>
 
   <script>
+    /* ---------- Valentine Shayari ---------- */
+
+const shayariLines = [
+  "🌹 Rose Day – Har gulaab me teri khushboo basi hai…",
+  "💌 Propose Day – Tujhe chahna meri aadat nahi, meri zarurat hai…",
+  "🍫 Chocolate Day – Teri muskaan meri zindagi ki mithaas hai…",
+  "🧸 Teddy Day – Teri baahon ka sukoon duniya se alag hai…",
+  "💍 Promise Day – Har janam sirf tera saath chahunga…",
+  "🤗 Hug Day – Ek gale me saari thakaan utar jaaye…",
+  "💋 Kiss Day – Tere kareeb hona hi meri jannat hai…",
+  "❤️ Valentine’s Day – Tu meri mohabbat nahi, meri zindagi hai…"
+];
+
+function startShayariTyping() {
+  const box = document.getElementById("shayariBox");
+  box.innerHTML = "";
+  let i = 0;
+
+  const interval = setInterval(() => {
+    if (i < shayariLines.length) {
+      const p = document.createElement("p");
+      p.innerText = shayariLines[i++];
+      p.style.opacity = "0";
+      p.style.transition = "opacity 1s";
+      box.appendChild(p);
+      setTimeout(() => p.style.opacity = "1", 100);
+    } else {
+      clearInterval(interval);
+    }
+  }, 1400);
+}
+    function playMusic() {
+  const music = document.getElementById("bgMusic");
+  music.volume = 0.4;
+  music.play().catch(() => {});
+}
+
+function startLoveRain() {
+  document.querySelectorAll(".love-rain").forEach(container => {
+    setInterval(() => {
+      const e = document.createElement("div");
+      e.innerText = ['❤️','💖','💋','🌹'][Math.floor(Math.random()*4)];
+      e.style.position = "absolute";
+      e.style.left = Math.random() * 100 + "%";
+      e.style.top = "-30px";
+      e.style.fontSize = "24px";
+      e.style.transition = "top 6s linear, opacity 6s";
+      container.appendChild(e);
+
+      setTimeout(() => {
+        e.style.top = "100vh";
+        e.style.opacity = "0";
+      }, 10);
+
+      setTimeout(() => e.remove(), 6500);
+    }, 350);
+  });
+}
     function hideAllSections() {
       const sections = [
         'unlockScreen',
@@ -494,10 +627,22 @@
     }
 
     function revealMessage() {
-      hideAllSections();
-      document.getElementById('messageSection').classList.remove('hidden');
-      document.getElementById('messageSection').scrollIntoView({ behavior: 'smooth' });
-      startCarousel();
+  hideAllSections();
+  document.getElementById('valentinePage').classList.remove('hidden');
+  startLoveRain();
+  playMusic();
+  startShayariTyping();
+    }
+    function checkCalendarAnswer() {
+  hideAllSections();
+
+  if (document.getElementById("calendarAnswer").value === "1") {
+    document.getElementById("messageSection").classList.remove("hidden");
+    startCarousel();
+  } else {
+    document.getElementById("teasePage").classList.remove("hidden");
+    startLoveRain();
+  }
     }
 
     function startCarousel() {
