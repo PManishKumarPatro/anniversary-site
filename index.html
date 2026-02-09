@@ -554,21 +554,26 @@ const shayariLines = [
 
 function startShayariTyping() {
   const box = document.getElementById("shayariBox");
+  if (!box) return;
   box.innerHTML = "";
   let i = 0;
 
   const interval = setInterval(() => {
-    if (i < shayariLines.length) {
-      const p = document.createElement("p");
-      p.innerText = shayariLines[i++];
-      p.style.opacity = "0";
-      p.style.transition = "opacity 1s";
-      box.appendChild(p);
-      setTimeout(() => p.style.opacity = "1", 100);
-    } else {
+    const interval = setInterval(() => {
+    if (index >= shayariLines.length) {
       clearInterval(interval);
+      return;
     }
-  }, 1400);
+    const p = document.createElement("p");
+    p.textContent = shayariLines[index];
+    box.appendChild(p);
+    requestAnimationFrame(() => {
+      p.style.transition = "opacity 1s";
+      p.style.opacity = "1";
+    });
+
+    index++;
+  }, 1500);
 }
     function playMusic() {
   const music = document.getElementById("bgMusic");
@@ -637,7 +642,9 @@ function startLoveRain() {
   document.getElementById('valentinePage').classList.remove('hidden');
   startLoveRain();
   playMusic();
-  startShayariTyping();
+  setTimeout(() => {
+    startShayariTyping();
+  }, 500);
     }
     function checkCalendarAnswer() {
   hideAllSections();
