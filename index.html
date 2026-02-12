@@ -576,6 +576,7 @@ function startShayariTyping() {
 }
     function playMusic() {
   const music = document.getElementById("bgMusic");
+      if (!music) return;
   music.volume = 0.4;
   music.play().catch(() => {});
 }
