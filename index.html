@@ -355,12 +355,18 @@
   color: #b30059;
   text-shadow: 2px 2px 15px rgba(255, 0, 102, 0.4);
 }
+    @keyframes romanticZoom {
+  from { background-size: 100%; }
+  to   { background-size: 105%; }
+}
     .valentine-page {
   min-height: 100vh;
-  padding: 40px 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 60px 20px;
+  position: relative;
+  background:
+    linear-gradient(rgba(255,240,245,0.85), rgba(255,240,245,0.85)),
+    url('1000052174.jpg') center/cover no-repeat;
+      animation: romanticZoom 30s ease-in-out infinite alternate;
 }
     .valentine-container {
   width: 100%;
@@ -919,7 +925,9 @@ function startLoveRain() {
         'messageSection',
         'romanticPage',
         'rejectionModal',
-        'feedbackPage'
+        'feedbackPage',
+        'valentinePage',
+        'teasePage'
       ];
       sections.forEach(id => {
         const el = document.getElementById(id);
@@ -957,7 +965,7 @@ function startLoveRain() {
     function checkCalendarAnswer() {
   hideAllSections();
 
-  if (document.getElementById("calendarAnswer").value === "1") {
+  if (answer === "1") {
     document.getElementById("messageSection").classList.remove("hidden");
     startCarousel();
   } else {
