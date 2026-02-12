@@ -428,12 +428,40 @@
 
 .shayari-left p {
   margin-bottom: 14px;
+  position: relative;
+}
+    @keyframes rotateRay {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .heart-wrapper {
   width: 45%;
   display: flex;
   justify-content: center;
+}
+    .heart-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px red, 0 0 40px red;
+  border-radius: 50%;
+  pointer-events: none;
+
+  background: conic-gradient(
+    transparent 0deg,
+    transparent 300deg,
+    rgba(255,0,0,0.9) 330deg,
+    rgba(255,0,0,1) 350deg,
+    transparent 360deg
+  );
+
+  animation: rotateRay 3s linear infinite;
+  filter: blur(6px);
 }
     
 @keyframes heartBeat {
