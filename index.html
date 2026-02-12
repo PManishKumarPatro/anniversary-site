@@ -556,10 +556,9 @@ function startShayariTyping() {
   const box = document.getElementById("shayariBox");
   if (!box) return;
   box.innerHTML = "";
-  let i = 0;
+  let index = 0;
 
   const interval = setInterval(() => {
-    const interval = setInterval(() => {
     if (index >= shayariLines.length) {
       clearInterval(interval);
       return;
@@ -567,10 +566,10 @@ function startShayariTyping() {
     const p = document.createElement("p");
     p.textContent = shayariLines[index];
     box.appendChild(p);
-    requestAnimationFrame(() => {
-      p.style.transition = "opacity 1s";
+    setTimeout(() => {
       p.style.opacity = "1";
-    });
+      p.style.transition = "opacity 1s";
+    }, 50);
 
     index++;
   }, 1500);
@@ -939,6 +938,9 @@ function startLoveRain() {
       document.getElementById('error').innerText = '';
       document.getElementById('unlockScreen').scrollIntoView({ behavior: 'smooth' });
     }
+    <audio id="bgMusic" loop>
+  <source src="romantic-music.mp3" type="audio/mpeg">
+</audio>
   </script>
 </body>
 </html>
