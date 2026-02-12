@@ -386,13 +386,23 @@
   margin-top: 40px;
   text-align: center;
 }
+    .question-box p {
+  font-family: 'Great Vibes', cursive;
+  font-size: 26px;
+  color: #7a003c;
+}
 
 .question-box input {
   padding: 12px;
+  font-family: 'Great Vibes', cursive;
   font-size: 16px;
   border-radius: 10px;
   border: 2px solid #d63384;
   width: 200px;
+}
+    .question-box button {
+  font-family: 'Great Vibes', cursive;
+  font-size: 20px;
 }
 
 .love-rain {
@@ -404,7 +414,7 @@
     
     .shayari-left {
   width: 55%;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Great Vibes', cursive;
   font-size: 20px;
   line-height: 2.1;
   color: #5a0033;
@@ -420,6 +430,11 @@
   justify-content: center;
 }
     
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+}
+
 
     
     .heart-grid {
@@ -427,6 +442,7 @@
   height: 420px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+      animation: heartBeat 3s infinite ease-in-out;
   gap: 8px;
   clip-path: polygon(
     50% 95%,
