@@ -349,17 +349,14 @@
 }
 
 .valentine-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 48px;
-  color: #d63384;
-  margin-bottom: 30px;
+  flex-shrink: 0;
+  margin: 10px 0 5px;
 }
     .valentine-page {
   height: 100vh;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  overflow: hidden;
 }
     .valentine-container {
   flex: 1;
@@ -367,6 +364,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 60px;
+  overflow: hidden;
 }
 
 .shayari-box {
@@ -381,7 +379,8 @@
 }
 
 .question-box {
-  margin-top: 40px;
+  flex-shrink: 0;
+  margin: 10px 0 20px;
 }
 
 .question-box input {
@@ -427,8 +426,8 @@
 }
 
     .heart-grid {
-  width: 500px;
-  height: 500px;
+  width: 420px;
+  height: 420px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 6px;
@@ -467,7 +466,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.8s;
+  transition: transform 0.7s;
   transform-style: preserve-3d;
 }
     .flip-inner.rotate {
@@ -479,13 +478,14 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 8px;
+  border-radius: 10px;
+  overflow: hidden;
 }
     .flip-back {
   background: linear-gradient(135deg, #ff4d88, #ff0066);
   color: white;
   font-family: 'Great Vibes', cursive;
-  font-size: 22px;
+  font-size: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -818,18 +818,15 @@ const shayariLines = [
   "💋 Kiss Day – Tere kareeb hona hi meri jannat hai…",
   "❤️ Valentine’s Day – Tu meri mohabbat nahi, meri zindagi hai…"
 ];
-    document.querySelectorAll(".flip-card").forEach(card => {
-  card.addEventListener("click", () => {
-    card.querySelector(".flip-inner").classList.toggle("rotate");
-  });
-});
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".heart-grid img").forEach(img => {
-    img.addEventListener("click", () => {
-      img.classList.toggle("rotate");
+    document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".flip-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const inner = card.querySelector(".flip-inner");
+      inner.classList.toggle("rotate");
     });
   });
 });
+
 function startShayariTyping() {
   const box = document.getElementById("shayariBox");
   if (!box) return;
