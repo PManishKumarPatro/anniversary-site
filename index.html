@@ -354,6 +354,20 @@
   color: #d63384;
   margin-bottom: 30px;
 }
+    .valentine-page {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+    .valentine-container {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+}
 
 .shayari-box {
   background: rgba(255,255,255,0.9);
@@ -411,24 +425,70 @@
   justify-content: center;
   align-items: center;
 }
+
     .heart-grid {
-  width: 550px;
-  height: 550px;
+  width: 500px;
+  height: 500px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 6px;
   position: relative;
-  clip-path: path("M200 350 C50 250 0 150 100 100 C150 50 200 100 200 100 C200 100 250 50 300 100 C400 150 350 250 200 350 Z");
+  clip-path: path("M250 450 C50 300 50 150 150 100 C200 50 250 120 250 120 C250 120 300 50 350 100 C450 150 450 300 250 450 Z");
+  transition: transform 0.5s ease;
+  box-shadow: 0 0 40px rgba(255, 0, 102, 0.5);
+}
+    .heart-grid:hover {
+  transform: scale(1.05);
+}
+    .heart-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(255, 0, 102, 0.7);
+  z-index: -1;
 }
     .heart-grid img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
-  transition: transform 0.8s ease;
   cursor: pointer;
+  backface-visibility: hidden;
+  transition: transform 0.8s ease;
 }
     .heart-grid img.rotate {
+  transform: rotateY(180deg);
+}
+    .flip-card {
+  perspective: 1000px;
+}
+    .flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+    .flip-inner.rotate {
+  transform: rotateY(180deg);
+}
+    .flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+}
+    .flip-back {
+  background: linear-gradient(135deg, #ff4d88, #ff0066);
+  color: white;
+  font-family: 'Great Vibes', cursive;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transform: rotateY(180deg);
 }
     
@@ -452,26 +512,151 @@
     <div id="shayariBox" class="shayari-left"></div>
     <div class="heart-collage">
       <div class="heart-grid">
-        <img src="1000061153.jpg">
+        <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000061153.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div>
+        <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000044002.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div>
+        <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000043728.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div>
+        <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000043709.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div>
+        <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000112884.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div>
+        <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000112886.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div>
+        <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000112865.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div>
+        <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000045409.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div>
         
-        <img src="1000044002.jpg">
+       <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000042362.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div> 
         
-        <img src="1000043728.jpg">
+       <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000043592.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div> 
         
-        <img src="1000043709.jpg">
-        <img src="1000112884.jpg">
-        <img src="1000112886.jpg">
-        <img src="1000112865.jpg">
-        <img src="1000045409.jpg">
-        <img src="1000042362.jpg">
-        <img src="1000043592.jpg">
-        <img src="1000044002.jpg">
+       <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000044002.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div> 
         
-        <img src="1000043728.jpg">
-        <img src="1000043993.jpg">
-        <img src="1000043709.jpg">
+        <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000043728.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div>
+        <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000043993.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div>
         
-        
+        <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <img src="1000043709.jpg">
+        </div>
+        <div class="flip-back">
+          I Love You ❤️
+        </div>
+      </div>
+    </div>
         </div>
     </div>
 
@@ -633,6 +818,11 @@ const shayariLines = [
   "💋 Kiss Day – Tere kareeb hona hi meri jannat hai…",
   "❤️ Valentine’s Day – Tu meri mohabbat nahi, meri zindagi hai…"
 ];
+    document.querySelectorAll(".flip-card").forEach(card => {
+  card.addEventListener("click", () => {
+    card.querySelector(".flip-inner").classList.toggle("rotate");
+  });
+});
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".heart-grid img").forEach(img => {
     img.addEventListener("click", () => {
