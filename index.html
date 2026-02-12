@@ -430,38 +430,52 @@
   margin-bottom: 14px;
   position: relative;
 }
-    @keyframes rotateRay {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to   { transform: translate(-50%, -50%) rotate(360deg); }
-}
+    
 
 .heart-wrapper {
-  width: 45%;
+  position: relative;
+  width: 420px;
+  height: 420px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
-    .heart-wrapper::before {
-  content: "";
+    .fire-border {
   position: absolute;
-  width: 450px;
-  height: 450px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 20px red, 0 0 40px red;
-  border-radius: 50%;
+  width: 440px;
+  height: 440px;
+  z-index: 3;
   pointer-events: none;
+}
+    .fire-border path {
+  fill: none;
+  stroke: #ff3300;
+  stroke-width: 14;
+  stroke-linecap: round;
 
-  background: conic-gradient(
-    transparent 0deg,
-    transparent 300deg,
-    rgba(255,0,0,0.9) 330deg,
-    rgba(255,0,0,1) 350deg,
-    transparent 360deg
-  );
+  filter:
+    drop-shadow(0 0 5px #ff2200)
+    drop-shadow(0 0 15px #ff3300)
+    drop-shadow(0 0 30px #ff5500);
 
-  animation: rotateRay 3s linear infinite;
-  filter: blur(6px);
+  animation: flameFlicker 0.12s infinite alternate;
+}
+
+@keyframes flameFlicker {
+  0% {
+    stroke: #ff3300;
+    filter:
+      drop-shadow(0 0 5px #ff2200)
+      drop-shadow(0 0 15px #ff3300)
+      drop-shadow(0 0 30px #ff5500);
+  }
+  100% {
+    stroke: #ffaa00;
+    filter:
+      drop-shadow(0 0 15px #ff5500)
+      drop-shadow(0 0 35px #ff0000)
+      drop-shadow(0 0 60px #ff2200);
+  }
 }
     
 @keyframes heartBeat {
@@ -582,6 +596,9 @@
   <p>❤️ Valentine’s Day – Tu meri mohabbat nahi, meri zindagi hai…</p>
 </div>
     <div class="heart-wrapper">
+      <svg class="fire-border" viewBox="0 0 512 512">
+    <path d="M256 472s-180-104-180-240c0-80 60-140 140-140 50 0 80 30 100 60 20-30 50-60 100-60 80 0 140 60 140 140 0 136-180 240-180 240z"/>
+  </svg>
       <div class="heart-grid">
         <div class="flip-card">
       <div class="flip-inner">
@@ -991,13 +1008,14 @@ function startLoveRain() {
   
     }
     function checkCalendarAnswer() {
-  hideAllSections();
+  const answer = document.getElementById("calendarAnswer").value;
 
-  if (answer === "1") {
+  hideAllSections();
+      if (answer === "1") {
     document.getElementById("messageSection").classList.remove("hidden");
     startCarousel();
-  } else {
-    document.getElementById("teasePage").classList.remove("hidden");
+  }else{
+        document.getElementById("teasePage").classList.remove("hidden");
     startLoveRain();
   }
     }
