@@ -362,12 +362,11 @@
   overflow: hidden;
 }
     .valentine-container {
-  flex: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 60px;
-  overflow: hidden;
+  padding: 0 80px;
+  height: 65vh;
 }
 
 .shayari-box {
@@ -382,8 +381,8 @@
 }
 
 .question-box {
-  flex-shrink: 0;
-  margin: 10px 0 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .question-box input {
@@ -407,9 +406,18 @@
   padding: 0 80px;
 }
     .shayari-left {
-  width: 45%;
-  font-size: 20px;
-  line-height: 2;
+  width: 50%;
+  font-size: 22px;
+  line-height: 2.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+.shayari-left p {
+  margin: 0;
+  max-width: 100%;
 }
 
 .heart-wrapper {
